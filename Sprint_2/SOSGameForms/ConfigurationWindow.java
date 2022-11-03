@@ -1,6 +1,4 @@
 package SOSGameForms;
-import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -38,7 +36,7 @@ public class ConfigurationWindow extends JFrame{
                     invalidBoardSizeAlert.setForeground(Color.PINK);
                 }
                 else {
-                    PlayWindow game = new PlayWindow(boardSize, gameType, playerType);
+                    PlayWindowSimple game = new PlayWindowSimple(boardSize);
                     frame.setVisible(false);
                 }
             }

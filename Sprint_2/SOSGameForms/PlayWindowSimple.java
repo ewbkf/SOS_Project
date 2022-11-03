@@ -1,8 +1,5 @@
 package SOSGameForms;
 
-import javax.swing.*;
-import java.awt.*;
-
 public class PlayWindowSimple extends JFrame {
 
     static private JFrame frame;

@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="64006a94-056b-4567-b3be-938e080d0ce0" name="Changes" comment="">
+    <list default="true" id="64006a94-056b-4567-b3be-938e080d0ce0" name="Changes" comment="Refactoring (or at least trying to)">
+      <change afterPath="$PROJECT_DIR$/Sprint_2/SOSGameForms/ConfigurationWindow.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sprint_2/SOSGameForms/ConfigurationWindow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameTile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/ConfigurationWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/ConfigurationWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowSimple.form" beforeDir="false" afterPath="$PROJECT_DIR$/Sprint_2/SOSGameForms/PlayWindow.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowSimple.java" beforeDir="false" afterPath="$PROJECT_DIR$/Sprint_2/SOSGameForms/PlayWindowSimple.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +28,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/SOSGameForms/ConfigurationWindow.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -34,8 +46,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "136",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "219",
-    "last_opened_file_path": "C:/School/UMKC/Fall2022/CS449/SOS_Project/src/SOSGameForms",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "411",
+    "last_opened_file_path": "C:/School/UMKC/Fall2022/CS449/SOS_Project/Sprint_2",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -45,10 +57,16 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\School\UMKC\Fall2022\CS449\SOS_Project\Sprint_2" />
       <recent name="C:\School\UMKC\Fall2022\CS449\SOS_Project\src\SOSGameForms" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.RunGame">
+    <configuration name="Unnamed" type="AntRunConfiguration" nameIsGenerated="true">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RunGame" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="SOSGameForms.ConfigurationWindow" />
       <module name="SOS_Project" />
@@ -56,6 +74,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Ant Target.Unnamed" />
+      <item itemvalue="Application.RunGame" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -66,6 +88,21 @@
       <option name="presentableId" value="Default" />
       <updated>1667429051372</updated>
     </task>
+    <task id="LOCAL-00001" summary="Refactoring (or at least trying to)">
+      <created>1667512378308</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1667512378308</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Refactoring (or at least trying to)">
+      <created>1667512519632</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1667512519632</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -78,5 +115,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Refactoring (or at least trying to)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring (or at least trying to)" />
   </component>
 </project>
