@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="SOSGameForms.PlayWindow">
   <grid id="27dc6" binding="mainPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="13" y="28" width="831" height="701"/>
+      <xy x="13" y="28" width="392" height="403"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -13,7 +13,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="68258" class="javax.swing.JRadioButton" binding="sRadioButton" default-binding="true">
+          <component id="68258" class="javax.swing.JRadioButton" binding="P1RadioButtonS" default-binding="true">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -21,7 +21,7 @@
               <text value="S"/>
             </properties>
           </component>
-          <component id="abe23" class="javax.swing.JRadioButton" binding="oRadioButton" default-binding="true">
+          <component id="abe23" class="javax.swing.JRadioButton" binding="P1RadioButtonO" default-binding="true">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -59,7 +59,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="7fd72" class="javax.swing.JRadioButton" binding="sRadioButton1" default-binding="true">
+          <component id="7fd72" class="javax.swing.JRadioButton" binding="P2RadioButtonS" default-binding="true">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -67,7 +67,7 @@
               <text value="S"/>
             </properties>
           </component>
-          <component id="4831a" class="javax.swing.JRadioButton" binding="oRadioButton2" default-binding="true">
+          <component id="4831a" class="javax.swing.JRadioButton" binding="P2RadioButtonO" default-binding="true">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -99,7 +99,7 @@
           </component>
         </children>
       </grid>
-      <grid id="d89ee" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="d89ee" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="5" left="0" bottom="0" right="0"/>
         <constraints border-constraint="North"/>
         <properties/>
@@ -113,14 +113,6 @@
               <font name="Consolas" size="20" style="1"/>
               <icon value="SOSGameForms/Resources/SOS_Title.png"/>
               <text value=""/>
-            </properties>
-          </component>
-          <component id="97373" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="It is Player 1's turn!"/>
             </properties>
           </component>
         </children>

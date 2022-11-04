@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="64006a94-056b-4567-b3be-938e080d0ce0" name="Changes" comment="Added GameTile and Player classes, game tiles serve as spaces to play on and are an extension of the JButtom class. Player is just a container to hold both the player number and their intended next move.">
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/Resources/SOS_Button_BLUE_O.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/Resources/SOS_Button_BLUE_S.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/Resources/SOS_Button_Blank.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/Resources/SOS_Button_RED_O.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/Resources/SOS_Button_RED_S.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/Resources/SOS_Title.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/Resources/SOS_windowIcon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/TileIcon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/TileLocation.java" afterDir="false" />
+    <list default="true" id="64006a94-056b-4567-b3be-938e080d0ce0" name="Changes" comment="Added some classes to deal with changing the tiles as they are played.">
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/Resources/SOS_Button_WHITE_O.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/Resources/SOS_Button_WHITE_S.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/ConfigurationWindow.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/ConfigurationWindow.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/ConfigurationWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/ConfigurationWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SOSGameForms/GameTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/GameTile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/TileIcon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/TileIcon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667582830070</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added some classes to deal with changing the tiles as they are played.">
+      <created>1667595179577</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1667595179577</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -143,6 +142,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Refactoring (or at least trying to)" />
     <MESSAGE value="Added GameTile and Player classes, game tiles serve as spaces to play on and are an extension of the JButtom class. Player is just a container to hold both the player number and their intended next move." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added GameTile and Player classes, game tiles serve as spaces to play on and are an extension of the JButtom class. Player is just a container to hold both the player number and their intended next move." />
+    <MESSAGE value="Added some classes to deal with changing the tiles as they are played." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some classes to deal with changing the tiles as they are played." />
   </component>
 </project>
