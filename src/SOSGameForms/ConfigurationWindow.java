@@ -18,6 +18,7 @@ public class ConfigurationWindow extends JFrame{
     private JLabel boardSizeTip;
     private JLabel sizeSavedText;
     private JLabel invalidBoardSizeAlert;
+    private JLabel gameSelectMenuTitle;
     private ButtonGroup playerSelectGroup;
     private ButtonGroup gameSelectGroup;
 
@@ -26,6 +27,8 @@ public class ConfigurationWindow extends JFrame{
     private int playerType = 0;
 
     public ConfigurationWindow() throws HeadlessException {
+        ImageIcon frameIcon = new ImageIcon(getClass().getResource("Resources/SOS_windowIcon.png"));
+        frame.setIconImage(frameIcon.getImage());
         sizeSavedText.setVisible(false);
         invalidBoardSizeAlert.setVisible(false);
         STARTButton.addActionListener(new ActionListener() {
@@ -50,6 +53,7 @@ public class ConfigurationWindow extends JFrame{
                 if(Integer.parseInt(textFieldValue) < 3 || Integer.parseInt(textFieldValue) > 40){
                     boardSize = 0;
                     boardSizeTip.setForeground(Color.RED);
+                    sizeSavedText.setVisible(false);
                 }
                 else {
                     boardSize = Integer.parseInt(textFieldValue);
@@ -100,6 +104,6 @@ public class ConfigurationWindow extends JFrame{
         frame.pack();
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
-
+        frame.pack();
     }
 }

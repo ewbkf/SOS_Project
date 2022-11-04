@@ -22,9 +22,10 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="38b66" class="javax.swing.JLabel">
+              <component id="38b66" class="javax.swing.JLabel" binding="gameSelectMenuTitle">
                 <constraints border-constraint="North"/>
                 <properties>
+                  <font name="Consolas" size="14" style="1"/>
                   <text value="Game Select Menu: Please select your game options. "/>
                 </properties>
               </component>
@@ -47,9 +48,10 @@
                   </component>
                   <component id="eb7b3" class="javax.swing.JLabel">
                     <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
+                      <font name="Consolas"/>
                       <text value="Type a board size below:"/>
                       <toolTipText value="i.e. Board Size = 3:  3 X 3 board"/>
                     </properties>
@@ -75,6 +77,7 @@
                               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                             </constraints>
                             <properties>
+                              <font name="Consolas"/>
                               <text value="GAME TYPE"/>
                             </properties>
                           </component>
@@ -88,6 +91,7 @@
                               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                             </constraints>
                             <properties>
+                              <font name="Consolas"/>
                               <text value="Simple Game"/>
                             </properties>
                           </component>
@@ -96,6 +100,7 @@
                               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                             </constraints>
                             <properties>
+                              <font name="Consolas"/>
                               <text value="General Game"/>
                             </properties>
                           </component>
@@ -114,6 +119,7 @@
                               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                             </constraints>
                             <properties>
+                              <font name="Consolas"/>
                               <text value="Opponent Type"/>
                             </properties>
                           </component>
@@ -129,6 +135,7 @@
                               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                             </constraints>
                             <properties>
+                              <font name="Consolas"/>
                               <text value="Player v. Player"/>
                             </properties>
                           </component>
@@ -137,6 +144,7 @@
                               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                             </constraints>
                             <properties>
+                              <font name="Consolas"/>
                               <text value="Player v. Computer "/>
                             </properties>
                           </component>
@@ -166,6 +174,7 @@
                           <gridbag weightx="0.0" weighty="0.0"/>
                         </constraints>
                         <properties>
+                          <font name="Consolas"/>
                           <text value="Please enter a valid board size."/>
                         </properties>
                       </component>
@@ -190,7 +199,7 @@
                       <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
-                      <font name="Consolas" size="10"/>
+                      <font name="Consolas"/>
                       <foreground color="-12403916"/>
                       <text value="Saved!"/>
                     </properties>
