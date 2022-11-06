@@ -16,9 +16,18 @@ public class PlayWindow extends JFrame {
     private JLabel P1Turn;
     private JLabel P2Turn;
     private JLabel titleSOS;
+    private JLabel gameOverLabel;
+    private JPanel P1Panel;
+    private JPanel P2Panel;
+    private JPanel titlePanel;
+    private JPanel footerPanel;
+
     private JLabel TestButton;
 
-    boolean isPlayer1Turn; //is it player ones turn? if not, its player two/ the computers turn.
+    private int tilesRemaining;
+
+    boolean isPlayer1Turn = true; //is it player ones turn? if not, its player two/ the computers turn.
+    boolean gameOver = false;
 
     private int gameType = 0;
 
@@ -27,14 +36,19 @@ public class PlayWindow extends JFrame {
     public PlayWindow(int boardSize, int gMode, int pMode) throws HeadlessException {
         ImageIcon frameIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("Resources/SOS_windowIcon.png")));
         this.setIconImage(frameIcon.getImage());
+
+        tilesRemaining = (boardSize * boardSize);
+        gameOverLabel.setVisible(false);
         P1Turn.setVisible(false);
         P2Turn.setVisible(false);
         Player player1 = new Player();
+
         if (pMode == 1) {
             Player player2 = new Player();
         }
-        Icon SOSBlank = new ImageIcon(Objects.requireNonNull(getClass().getResource("Resources/SOS_Button_Blank.png")));
 
+        //TODO: see if the below code is even necessary.
+        //Icon SOSBlank = new ImageIcon(Objects.requireNonNull(getClass().getResource("Resources/SOS_Button_Blank.png")));
         //TestButton.setIcon(SOSBlank);
 
         frame = new JFrame("PlayWindow");
@@ -55,34 +69,87 @@ public class PlayWindow extends JFrame {
                 button.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        if ((P1RadioButtonS.isSelected() || P2RadioButtonS.isSelected()) && button.isPlayable()){
-                            button.setIcon(new TileIcon().getWhiteS());
-                            button.played();
-                        }
-                        if ((P1RadioButtonO.isSelected() || P2RadioButtonO.isSelected()) && button.isPlayable()){
-                            button.setIcon(new TileIcon().getWhiteO());
-                            button.played();
-                        }
+                        GeneralTurn(button);
                     }
                 });
                 playArea.add(button);
             }
         }
         this.pack();
-
-        P1RadioButtonS.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //TODO: S radio button needs to talk to GameTile
-            }
-        });
     }
 
-    public boolean isPlayer1Turn() {
+    private void simpleTurn(){
+        //TODO: Simple game turn
+    }
+
+    private void GeneralTurn(GameTile button){
+        if(!gameOver){
+            if(isPlayer1Turn){
+                P1MakeMove(button);
+            }
+            else{
+                P2MakeMove(button);
+            }
+        }
+        //else: if the game is over, nothing happens.
+    }
+
+    private void WhoGoesFirst(){
+
+    }
+
+    private void P1MakeMove(GameTile button){
+        if (P1RadioButtonS.isSelected() && button.isPlayable()){
+            button.setIcon(new TileIcon().getWhiteS());
+            button.played();
+            NextPlayer();
+            tilesRemaining--;
+        }
+        if (P1RadioButtonO.isSelected() && button.isPlayable()){
+            button.setIcon(new TileIcon().getWhiteO());
+            button.played();
+            NextPlayer();
+            tilesRemaining--;
+        }
+        if(tilesRemaining == 0){
+            GameOver();
+        }
+    }
+
+    private void P2MakeMove(GameTile button){
+        if (P2RadioButtonS.isSelected() && button.isPlayable()){
+            button.setIcon(new TileIcon().getWhiteS());
+            button.played();
+            NextPlayer();
+            tilesRemaining--;
+        }
+        if (P2RadioButtonO.isSelected() && button.isPlayable()){
+            button.setIcon(new TileIcon().getWhiteO());
+            button.played();
+            NextPlayer();
+            tilesRemaining--;
+        }
+        if(tilesRemaining == 0){
+            GameOver();
+        }
+    }
+
+    private void GameOver(){
+        //TODO: Set game over behavior
+        gameOverLabel.setVisible(true);
+        gameOver = true;
+        this.pack();
+    }
+
+    public boolean IsPlayer1Turn() {
         return isPlayer1Turn;
     }
 
-    public void setPlayer1Turn(boolean player1Turn) {
+    private void NextPlayer(){
+        isPlayer1Turn = !isPlayer1Turn;
+    }
+
+    public void SetPlayer1Turn(boolean player1Turn) {
         isPlayer1Turn = player1Turn;
     }
 }

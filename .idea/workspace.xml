@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="64006a94-056b-4567-b3be-938e080d0ce0" name="Changes" comment="Added some classes to deal with changing the tiles as they are played.">
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/Resources/SOS_Button_WHITE_O.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/Resources/SOS_Button_WHITE_S.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/GameTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/GameTile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/TileIcon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/TileIcon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -44,8 +47,8 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "136",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "411",
-    "last_opened_file_path": "C:/School/UMKC/Fall2022/CS449/SOS_Project/src/SOSGameForms/Resources",
-    "project.structure.last.edited": "Project",
+    "last_opened_file_path": "C:/Users/ethan/Documents/School/UMKC/Fall2022/CS449/SOS_Project",
+    "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
