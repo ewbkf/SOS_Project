@@ -1,8 +1,8 @@
 package SOSGameForms;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
+import java.util.Objects;
 
 public class ConfigurationWindow extends JFrame{
     static private JFrame frame;
@@ -19,38 +19,48 @@ public class ConfigurationWindow extends JFrame{
     private JLabel sizeSavedText;
     private JLabel invalidBoardSizeAlert;
     private JLabel gameSelectMenuTitle;
+    private JLabel gameTypeAlert;
+    private JLabel playerTypeAlert;
     private ButtonGroup playerSelectGroup;
     private ButtonGroup gameSelectGroup;
-
     private int boardSize = 0;
     private int gameType = 0;
     private int playerType = 0;
+    private final int maxBoardSize = 15;
+    private final int minBoardSize = 3;
 
     public ConfigurationWindow() throws HeadlessException {
-        ImageIcon frameIcon = new ImageIcon(getClass().getResource("Resources/SOS_windowIcon.png"));
+        ImageIcon frameIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("Resources/SOS_windowIcon.png")));
         frame.setIconImage(frameIcon.getImage());
         sizeSavedText.setVisible(false);
         invalidBoardSizeAlert.setVisible(false);
+        gameTypeAlert.setVisible(false);
+        playerTypeAlert.setVisible(false);
         STARTButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (boardSize == 0){
                     invalidBoardSizeAlert.setVisible(true);
                 }
-                else if (playerSelectGroup.getSelection() == null || gameSelectGroup.getSelection() == null){
-                    invalidBoardSizeAlert.setForeground(Color.PINK);
+                if (playerSelectGroup.getSelection() == null){
+                    playerTypeAlert.setVisible(true);
                 }
-                else {
-                    PlayWindow game = new PlayWindow(boardSize, gameType, playerType);
+                if (gameSelectGroup.getSelection() == null){
+                    gameTypeAlert.setVisible(true);
+                }
+                if (boardSize != 0 && gameSelectGroup.getSelection() != null && playerSelectGroup.getSelection() != null) {
+                    PlayWindowGeneral game = new PlayWindowGeneral(boardSize, gameType, playerType);
+
                     frame.setVisible(false);
                 }
             }
         });
+
         textField1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String textFieldValue = textField1.getText();
-                if(Integer.parseInt(textFieldValue) < 3 || Integer.parseInt(textFieldValue) > 40){
+                if(Integer.parseInt(textFieldValue) < minBoardSize || Integer.parseInt(textFieldValue) > maxBoardSize){
                     boardSize = 0;
                     boardSizeTip.setForeground(Color.RED);
                     sizeSavedText.setVisible(false);

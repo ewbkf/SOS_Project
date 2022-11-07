@@ -4,9 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64006a94-056b-4567-b3be-938e080d0ce0" name="Changes" comment="Added some classes to deal with changing the tiles as they are played.">
+    <list default="true" id="64006a94-056b-4567-b3be-938e080d0ce0" name="Changes" comment="Small changes, added some methods to PlayWindow">
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowGeneral.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowSimple.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/SOSGameForms/ConfigurationWindowTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/SOSGameForms/GameTileTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/SOSGameForms/PlayWindowGeneralTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/SOSGameForms/PlayWindowTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/SOSGameForms/PlayerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/SOSGameForms/TileIconTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/SOSGameForms/TileLocationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOS_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SOS_Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprint_2/SOSGameForms/ConfigurationWindow.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprint_2/SOSGameForms/ConfigurationWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprint_2/SOSGameForms/PlayWindow.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprint_2/SOSGameForms/PlayWindowSimple.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/ConfigurationWindow.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/ConfigurationWindow.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/ConfigurationWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/ConfigurationWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/GameTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/GameTile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.java" afterDir="false" />
     </list>
@@ -21,6 +38,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -42,13 +60,21 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "136",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "411",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "create.test.in.the.same.root": "true",
+    "jdk.selected.JAVA_MODULE": "openjdk-19",
     "last_opened_file_path": "C:/Users/ethan/Documents/School/UMKC/Fall2022/CS449/SOS_Project",
-    "project.structure.last.edited": "SDKs",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
@@ -65,6 +91,15 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\School\UMKC\Fall2022\CS449\SOS_Project\src\SOSGameForms" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="Test" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="SOSGameForms" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.RunGame">
     <configuration name="Unnamed" type="AntRunConfiguration" nameIsGenerated="true">
@@ -79,10 +114,59 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="All in SOS_Project" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SOS_Project" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TileIconTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SOS_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SOSGameForms.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="SOSGameForms" />
+      <option name="MAIN_CLASS_NAME" value="SOSGameForms.TileIconTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TileIconTest.myBalls" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SOS_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SOSGameForms.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="SOSGameForms" />
+      <option name="MAIN_CLASS_NAME" value="SOSGameForms.TileIconTest" />
+      <option name="METHOD_NAME" value="myBalls" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Ant Target.Unnamed" />
       <item itemvalue="Application.RunGame" />
+      <item itemvalue="JUnit.All in SOS_Project" />
+      <item itemvalue="JUnit.TileIconTest" />
+      <item itemvalue="JUnit.TileIconTest.myBalls" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TileIconTest" />
+        <item itemvalue="JUnit.TileIconTest.myBalls" />
+        <item itemvalue="JUnit.All in SOS_Project" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -128,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667595179577</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Small changes, added some methods to PlayWindow">
+      <created>1667705060193</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1667705060193</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -146,6 +237,7 @@
     <MESSAGE value="Refactoring (or at least trying to)" />
     <MESSAGE value="Added GameTile and Player classes, game tiles serve as spaces to play on and are an extension of the JButtom class. Player is just a container to hold both the player number and their intended next move." />
     <MESSAGE value="Added some classes to deal with changing the tiles as they are played." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some classes to deal with changing the tiles as they are played." />
+    <MESSAGE value="Small changes, added some methods to PlayWindow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small changes, added some methods to PlayWindow" />
   </component>
 </project>

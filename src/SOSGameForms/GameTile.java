@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 
 public class GameTile extends JButton {
     static private JButton tile = new JButton();
+
+    private char state = ' ';
     boolean playable = true;
     private TileLocation coords = new TileLocation();
 
@@ -17,6 +19,12 @@ public class GameTile extends JButton {
         this.setPreferredSize(new Dimension(64,64));
         this.setBorderPainted(true);
         this.setIcon(icon);
+        int xCoordinate = location.getxCoord();
+        int yCoordinate = location.getyCoord();
+
+        String spot = String.valueOf(xCoordinate) + String.valueOf(yCoordinate);
+
+        this.setToolTipText(spot);
 
         this.addActionListener(new ActionListener() {
             @Override
@@ -43,6 +51,14 @@ public class GameTile extends JButton {
     }
     public void setCoords(int x, int y) {
         this.coords = new TileLocation(x, y);
+    }
+
+    public char getState() {
+        return state;
+    }
+
+    public void setState(char state) {
+        this.state = state;
     }
 
     public boolean isPlayable() {

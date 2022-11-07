@@ -2,30 +2,36 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="SOSGameForms.PlayWindow">
   <grid id="27dc6" binding="mainPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="13" y="28" width="392" height="403"/>
+      <xy x="13" y="28" width="498" height="403"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
       <grid id="6b85b" binding="P1Panel" layout-manager="GridLayoutManager" row-count="5" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="0" left="20" bottom="0" right="20"/>
+        <margin top="0" left="30" bottom="0" right="30"/>
         <constraints border-constraint="West"/>
-        <properties/>
+        <properties>
+          <background color="-36755"/>
+          <enabled value="false"/>
+          <foreground color="-65536"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="68258" class="javax.swing.JRadioButton" binding="P1RadioButtonS" default-binding="true">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <background color="-36755"/>
               <text value="S"/>
             </properties>
           </component>
           <component id="abe23" class="javax.swing.JRadioButton" binding="P1RadioButtonO" default-binding="true">
             <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <background color="-36755"/>
               <text value="O"/>
             </properties>
           </component>
@@ -34,44 +40,45 @@
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
-          <component id="10bf6" class="javax.swing.JLabel" binding="P1Turn">
-            <constraints>
-              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Your Turn!"/>
-            </properties>
-          </component>
           <component id="1f896" class="javax.swing.JLabel">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font name="Consolas" size="12" style="1"/>
               <text value="P1"/>
             </properties>
           </component>
+          <vspacer id="3ba9">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
         </children>
       </grid>
       <grid id="e8dcc" binding="P2Panel" layout-manager="GridLayoutManager" row-count="5" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="0" left="20" bottom="0" right="20"/>
+        <margin top="0" left="30" bottom="0" right="30"/>
         <constraints border-constraint="East"/>
-        <properties/>
+        <properties>
+          <background color="-8747521"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="7fd72" class="javax.swing.JRadioButton" binding="P2RadioButtonS" default-binding="true">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <background color="-8747521"/>
               <text value="S"/>
             </properties>
           </component>
           <component id="4831a" class="javax.swing.JRadioButton" binding="P2RadioButtonO" default-binding="true">
             <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <background color="-8747521"/>
               <text value="O"/>
             </properties>
           </component>
@@ -80,23 +87,20 @@
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
-          <component id="e0630" class="javax.swing.JLabel" binding="P2Turn">
-            <constraints>
-              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Your Turn!"/>
-            </properties>
-          </component>
           <component id="ac4da" class="javax.swing.JLabel">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <font name="Consolas" size="12" style="1"/>
               <text value="P2"/>
             </properties>
           </component>
+          <vspacer id="f55d9">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
         </children>
       </grid>
       <grid id="d89ee" binding="titlePanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -117,7 +121,7 @@
           </component>
         </children>
       </grid>
-      <grid id="c50f8" binding="footerPanel" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="c50f8" binding="footerPanel" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints border-constraint="South"/>
         <properties/>
@@ -125,7 +129,7 @@
         <children>
           <vspacer id="beafb">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
                 <minimum-size width="-1" height="20"/>
               </grid>
             </constraints>
@@ -139,6 +143,32 @@
               <text value="GAME OVER"/>
             </properties>
           </component>
+          <grid id="8f62d" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="51799" class="javax.swing.JButton" binding="replayButton">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Play Again"/>
+                </properties>
+              </component>
+              <component id="49c49" class="javax.swing.JButton" binding="quitButton">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Quit"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
         </children>
       </grid>
     </children>
