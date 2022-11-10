@@ -26,23 +26,23 @@ public class PlayWindow extends JFrame {
     private Icon OIcon;
     private int tilesRemaining;
     private int P1Score = 0, P2Score = 0, CPUScore = 0;
+
     private int gameType = 0;
     private int boardSize;
-    private TileLocation lastTilePlayed = new TileLocation();
+    public TileLocation lastTilePlayed = new TileLocation();
 
     private JPanel playArea;
 
     private final Color redTeamColor = new Color(225, 112,109);
     private final Color blueTeamColor = new Color(112,133,225);
     private final Color offTurnColor = new Color(150,150,150);
-    boolean isPlayer1Turn = false; //is it player ones turn? if not, its player two/ the computers turn.
-    boolean gameOver = false;
+    protected boolean isPlayer1Turn = false; //is it player ones turn? if not, its player two/ the computers turn.
+    protected boolean gameOver = false;
 
     public PlayWindow(int size, int gMode, int pMode) throws HeadlessException {
         ImageIcon frameIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("Resources/SOS_windowIcon.png")));
         this.setIconImage(frameIcon.getImage());
         boardSize = size;
-
         NextPlayer();
         tilesRemaining = (size * size);
         gameOverLabel.setVisible(false);
@@ -85,7 +85,7 @@ public class PlayWindow extends JFrame {
         this.pack();
     }
 
-    private void GeneralTurn(GameTile button){
+    public void MakeMove(GameTile button){
         if(!gameOver){
             if(isPlayer1Turn){
                 P1MakeMove(button);
@@ -97,22 +97,21 @@ public class PlayWindow extends JFrame {
         //else: if the game is over, nothing happens.
     }
 
-    private void P1MakeMove(GameTile button){
+    public void P1MakeMove(GameTile button){
         if (P1RadioButtonS.isSelected() && button.isPlayable()){
             button.setIcon(new TileIcon().getWhiteS());
             button.played();
             button.setState('S');
-            lastTilePlayed = button.getCoords();
+            this.lastTilePlayed = button.getCoords();
             checkForSOS(button.getCoords(), boardSize, isPlayer1Turn);
             NextPlayer();
             tilesRemaining--;
-
         }
         if (P1RadioButtonO.isSelected() && button.isPlayable()){
             button.setIcon(new TileIcon().getWhiteO());
             button.played();
             button.setState('O');
-            lastTilePlayed = button.getCoords();
+            this.lastTilePlayed = button.getCoords();
             checkForSOS(button.getCoords(), boardSize, isPlayer1Turn);
             NextPlayer();
             tilesRemaining--;
@@ -122,12 +121,12 @@ public class PlayWindow extends JFrame {
         }
     }
 
-    private void P2MakeMove(GameTile button){
+    public void P2MakeMove(GameTile button){
         if (P2RadioButtonS.isSelected() && button.isPlayable()){
             button.setIcon(new TileIcon().getWhiteS());
             button.played();
             button.setState('S');
-            lastTilePlayed = button.getCoords();
+            this.lastTilePlayed = button.getCoords();
             checkForSOS(button.getCoords(), boardSize, isPlayer1Turn);
             NextPlayer();
             tilesRemaining--;
@@ -136,7 +135,7 @@ public class PlayWindow extends JFrame {
             button.setIcon(new TileIcon().getWhiteO());
             button.played();
             button.setState('O');
-            lastTilePlayed = button.getCoords();
+            this.lastTilePlayed = button.getCoords();
             checkForSOS(button.getCoords(), boardSize, isPlayer1Turn);
             NextPlayer();
             tilesRemaining--;
@@ -146,7 +145,7 @@ public class PlayWindow extends JFrame {
         }
     }
 
-    private void GameOver(){
+    public void GameOver(){
         //TODO: Set game over behavior
         gameOverLabel.setVisible(true);
         gameOver = true;
@@ -159,7 +158,7 @@ public class PlayWindow extends JFrame {
         return isPlayer1Turn;
     }
 
-    private void NextPlayer(){
+    public void NextPlayer(){
         isPlayer1Turn = !isPlayer1Turn;
         if (isPlayer1Turn){
             P1Panel.setBackground(redTeamColor);
@@ -179,14 +178,14 @@ public class PlayWindow extends JFrame {
         }
     }
 
-    private void populateBoard(JPanel area, int boardSize){
+    public void populateBoard(JPanel area, int boardSize){
         for (int i = 1; i < boardSize + 1; i++){
             for (int j = 1; j < boardSize + 1; j++){
                 GameTile button = new GameTile(new TileLocation(j, i), new TileIcon().getBLANK());
                 button.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        GeneralTurn(button);
+                        MakeMove(button);
                     }
                 });
                 area.add(button);
@@ -194,7 +193,7 @@ public class PlayWindow extends JFrame {
         }
     }
 
-    private void checkForSOS(TileLocation last, int boardSize, boolean P1Turn){
+    public void checkForSOS(TileLocation last, int boardSize, boolean P1Turn){
         GameTile tile = (GameTile)playArea.getComponentAt(last.getxCoord(), last.getyCoord());
         if(P1Turn){
             SIcon = new TileIcon().getRedS();
@@ -245,5 +244,21 @@ public class PlayWindow extends JFrame {
         else {
             //TODO: if for some reason this value is not S or O then there is an issue.
         }
+    }
+
+    public void setP1RadioButtonS(boolean status) {
+        P1RadioButtonS.setSelected(status);
+    }
+
+    public void setP1RadioButtonO(boolean status) {
+        P1RadioButtonO.setSelected(status);
+    }
+
+    public void setP2RadioButtonS(boolean status) {
+        P2RadioButtonS.setSelected(status);
+    }
+
+    public void setP2RadioButtonO(boolean status) {
+        P2RadioButtonO.setSelected(status);
     }
 }

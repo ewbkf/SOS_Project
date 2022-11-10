@@ -6,14 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="64006a94-056b-4567-b3be-938e080d0ce0" name="Changes" comment="Added some children. Started to get a handle on how the program would decide if an SOS was made. Added unit testing.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOS_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SOS_Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/SOSGameForms/PlayWindowTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/SOSGameForms/PlayWindowTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="CodeInsightWorkspaceSettings">
-    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -58,7 +58,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pathVariables"
+    "settings.editor.selected.configurable": "editor.preferences.import"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -94,15 +94,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in SOS_Project" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SOS_Project" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TileIconTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PlayWindowTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SOS_Project" />
       <extension name="coverage">
         <pattern>
@@ -111,13 +103,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="SOSGameForms" />
-      <option name="MAIN_CLASS_NAME" value="SOSGameForms.TileIconTest" />
+      <option name="MAIN_CLASS_NAME" value="SOSGameForms.PlayWindowTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TileIconTest.myBalls" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PlayWindowTest.checkThatXCoordinatesAreCorrectAfterTurn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SOS_Project" />
       <extension name="coverage">
         <pattern>
@@ -126,8 +118,56 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="SOSGameForms" />
-      <option name="MAIN_CLASS_NAME" value="SOSGameForms.TileIconTest" />
-      <option name="METHOD_NAME" value="myBalls" />
+      <option name="MAIN_CLASS_NAME" value="SOSGameForms.PlayWindowTest" />
+      <option name="METHOD_NAME" value="checkThatXCoordinatesAreCorrectAfterTurn" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlayWindowTest.checkThatXCoordinatesAreCorrectAfterTurnP1S" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SOS_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SOSGameForms.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="SOSGameForms" />
+      <option name="MAIN_CLASS_NAME" value="SOSGameForms.PlayWindowTest" />
+      <option name="METHOD_NAME" value="checkThatXCoordinatesAreCorrectAfterTurnP1S" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlayWindowTest.checkTileCoordinatesAreCorrectAfterTurn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SOS_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SOSGameForms.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="SOSGameForms" />
+      <option name="MAIN_CLASS_NAME" value="SOSGameForms.PlayWindowTest" />
+      <option name="METHOD_NAME" value="checkTileCoordinatesAreCorrectAfterTurn" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlayWindowTest.checkTileYCoordinatesAreCorrectAfterAfterInstantiation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SOS_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SOSGameForms.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="SOSGameForms" />
+      <option name="MAIN_CLASS_NAME" value="SOSGameForms.PlayWindowTest" />
+      <option name="METHOD_NAME" value="checkTileYCoordinatesAreCorrectAfterAfterInstantiation" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -136,15 +176,19 @@
     <list>
       <item itemvalue="Ant Target.Unnamed" />
       <item itemvalue="Application.RunGame" />
-      <item itemvalue="JUnit.All in SOS_Project" />
-      <item itemvalue="JUnit.TileIconTest" />
-      <item itemvalue="JUnit.TileIconTest.myBalls" />
+      <item itemvalue="JUnit.PlayWindowTest" />
+      <item itemvalue="JUnit.PlayWindowTest.checkThatXCoordinatesAreCorrectAfterTurn" />
+      <item itemvalue="JUnit.PlayWindowTest.checkThatXCoordinatesAreCorrectAfterTurnP1S" />
+      <item itemvalue="JUnit.PlayWindowTest.checkTileCoordinatesAreCorrectAfterTurn" />
+      <item itemvalue="JUnit.PlayWindowTest.checkTileYCoordinatesAreCorrectAfterAfterInstantiation" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TileIconTest" />
-        <item itemvalue="JUnit.TileIconTest.myBalls" />
-        <item itemvalue="JUnit.All in SOS_Project" />
+        <item itemvalue="JUnit.PlayWindowTest.checkThatXCoordinatesAreCorrectAfterTurnP1S" />
+        <item itemvalue="JUnit.PlayWindowTest" />
+        <item itemvalue="JUnit.PlayWindowTest.checkThatXCoordinatesAreCorrectAfterTurn" />
+        <item itemvalue="JUnit.PlayWindowTest.checkTileYCoordinatesAreCorrectAfterAfterInstantiation" />
+        <item itemvalue="JUnit.PlayWindowTest.checkTileCoordinatesAreCorrectAfterTurn" />
       </list>
     </recent_temporary>
   </component>
