@@ -1,5 +1,7 @@
 package SOSGameForms;
 
+import org.junit.jupiter.api.DisplayName;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -21,6 +23,8 @@ public class PlayWindow extends JFrame {
     private JPanel footerPanel;
     private JButton replayButton;
     private JButton quitButton;
+    private JLabel P1ScoreText;
+    private JLabel P2ScoreText;
 
     private Icon SIcon;
     private Icon OIcon;
@@ -87,12 +91,8 @@ public class PlayWindow extends JFrame {
 
     public void MakeMove(GameTile button){
         if(!gameOver){
-            if(isPlayer1Turn){
-                P1MakeMove(button);
-            }
-            else{
-                P2MakeMove(button);
-            }
+            if(isPlayer1Turn){ P1MakeMove(button); }
+            else{ P2MakeMove(button); }
         }
         //else: if the game is over, nothing happens.
     }
@@ -103,7 +103,7 @@ public class PlayWindow extends JFrame {
             button.played();
             button.setState('S');
             this.lastTilePlayed = button.getCoords();
-            checkForSOS(button.getCoords(), boardSize, isPlayer1Turn);
+            checkForSOS(button.getCoords(), boardSize);
             NextPlayer();
             tilesRemaining--;
         }
@@ -112,7 +112,7 @@ public class PlayWindow extends JFrame {
             button.played();
             button.setState('O');
             this.lastTilePlayed = button.getCoords();
-            checkForSOS(button.getCoords(), boardSize, isPlayer1Turn);
+            checkForSOS(button.getCoords(), boardSize);
             NextPlayer();
             tilesRemaining--;
         }
@@ -127,7 +127,7 @@ public class PlayWindow extends JFrame {
             button.played();
             button.setState('S');
             this.lastTilePlayed = button.getCoords();
-            checkForSOS(button.getCoords(), boardSize, isPlayer1Turn);
+            checkForSOS(button.getCoords(), boardSize);
             NextPlayer();
             tilesRemaining--;
         }
@@ -136,7 +136,7 @@ public class PlayWindow extends JFrame {
             button.played();
             button.setState('O');
             this.lastTilePlayed = button.getCoords();
-            checkForSOS(button.getCoords(), boardSize, isPlayer1Turn);
+            checkForSOS(button.getCoords(), boardSize);
             NextPlayer();
             tilesRemaining--;
         }
@@ -152,10 +152,6 @@ public class PlayWindow extends JFrame {
         replayButton.setVisible(true);
         quitButton.setVisible(true);
         this.pack();
-    }
-
-    public boolean IsPlayer1Turn() {
-        return isPlayer1Turn;
     }
 
     public void NextPlayer(){
@@ -193,52 +189,94 @@ public class PlayWindow extends JFrame {
         }
     }
 
-    public void checkForSOS(TileLocation last, int boardSize, boolean P1Turn){
-        GameTile tile = (GameTile)playArea.getComponentAt(last.getxCoord(), last.getyCoord());
-        if(P1Turn){
-            SIcon = new TileIcon().getRedS();
-            OIcon = new TileIcon().getRedO();
-        }
-        else {
-            SIcon = new TileIcon().getBlueS();
-            OIcon = new TileIcon().getBlueO();
-        }
-        if(tile.getState() == 'S'){
+    public void checkForSOS(TileLocation last, int boardSize){
+        //converting tile coordinates to an index so that we can access it in the JPanel.
+        int playedTileIndex = (boardSize * (last.getyCoord() - 1) + (last.getxCoord() - 1)); //Index of the last tile played.
+
+        GameTile lastTilePlayed = (GameTile)playArea.getComponent(playedTileIndex);
+        GameTile firstTileToBeTested;
+        GameTile secondTileToBeTested;
+        int firstTileIndex;
+        int secondTileIndex;
+        int boardMaxIndex = ((int)Math.pow(boardSize, 2) - 1);
+
+        if(lastTilePlayed.getState() == 'S'){
             //Above
-            if ((last.getyCoord() - 2) > 0) {
-                GameTile above = (GameTile)((playArea.getComponentAt(last.getxCoord(), last.getyCoord() - 1)));
-                if (above.getState() == 'O'){
-                    GameTile nextAbove = (GameTile)((playArea.getComponentAt(last.getxCoord(), last.getyCoord() - 2)));
-                    if (nextAbove.getState() == 'S'){
-                        //Success!
-                        ((GameTile) playArea.getComponentAt(last.getxCoord(), last.getyCoord())).setIcon(SIcon);
-                        ((GameTile) playArea.getComponentAt(last.getxCoord(), last.getyCoord()-1)).setIcon(OIcon);
-                        ((GameTile) playArea.getComponentAt(last.getxCoord(), last.getyCoord()-2)).setIcon(SIcon);
-                        if (isPlayer1Turn){P1Score++;}
-                        else {P2Score++;}
-                    }
+            //Checking if the two tiles above exist.
+            if(((playedTileIndex - boardSize) > 0) && ((playedTileIndex - (boardSize*2)) > 0)){
+                //as long as there are two tiles above to be checked, we will copy those into new objects.
+                firstTileIndex  = playedTileIndex - boardSize;
+                secondTileIndex = playedTileIndex - (boardSize*2);
+
+                firstTileToBeTested = (GameTile)playArea.getComponent(firstTileIndex);
+                secondTileToBeTested = (GameTile)playArea.getComponent(secondTileIndex);
+
+                if (firstTileToBeTested.getState() == 'O' && secondTileToBeTested.getState() == 'S'){
+                    AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex);
                 }
             }
 
-            //topRight
+            //TODO: topRight
+            //if((playedTileIndex - boardSize + 1)%boardSize!=0){}
+
 
             //Right
+            //if the next item to the left's index is evenly divisible by the board size, we know that it is the first item in the next line.
+            if(((playedTileIndex + 1)%boardSize != 0) && ((playedTileIndex + 2)%boardSize != 0) && ((playedTileIndex + 1) <= boardMaxIndex) && ((playedTileIndex + 2) <= boardMaxIndex)){
+                firstTileIndex  = (playedTileIndex + 1);
+                secondTileIndex = (playedTileIndex + 2);
 
-            //bottomRight
+                firstTileToBeTested = (GameTile)playArea.getComponent(firstTileIndex);
+                secondTileToBeTested = (GameTile)playArea.getComponent(secondTileIndex);
+
+                if (firstTileToBeTested.getState() == 'O' && secondTileToBeTested.getState() == 'S'){
+                    AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex);
+                }
+            }
+
+            //TODO: bottomRight
 
             //Bottom
+            if(((playedTileIndex + boardSize) < ((boardSize*boardSize)-1)) && ((playedTileIndex + (boardSize*2)) < ((boardSize*boardSize)-1))){
+                //as long as there are two tiles above to be checked, we will copy those into new objects.
+                firstTileIndex  = playedTileIndex + boardSize;
+                secondTileIndex = playedTileIndex + (boardSize*2);
 
-            //bottomLeft
+                firstTileToBeTested = (GameTile)playArea.getComponent(firstTileIndex);
+                secondTileToBeTested = (GameTile)playArea.getComponent(secondTileIndex);
+
+                if (firstTileToBeTested.getState() == 'O' && secondTileToBeTested.getState() == 'S'){
+                    AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex);
+                }
+            }
+            //TODO: bottomLeft
 
             //Left
+            if(((playedTileIndex)%boardSize != 0) && ((playedTileIndex - 1)%boardSize != 0)){
+                firstTileIndex  = (playedTileIndex - 1);
+                secondTileIndex = (playedTileIndex - 2);
 
-            //topLeft
+                firstTileToBeTested = (GameTile)playArea.getComponent(firstTileIndex);
+                secondTileToBeTested = (GameTile)playArea.getComponent(secondTileIndex);
+
+                if (firstTileToBeTested.getState() == 'O' && secondTileToBeTested.getState() == 'S'){
+                    AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex);
+                }
+            }
+
+            //TODO: topLeft
 
         }
-        else if(tile.getState() == 'O'){
+        else if(lastTilePlayed.getState() == 'O'){
+            //TODO: top -> bottom
 
+            //TODO: right -> left
+
+            //TODO: topRight -> bottomLeft
+
+            //TODO: topLeft -> bottomRight
         }
-        else if (tile.getState() == ' '){
+        else if (lastTilePlayed.getState() == ' '){
             //TODO: throw an exception as the tile was not played correctly.
         }
         else {
@@ -260,5 +298,38 @@ public class PlayWindow extends JFrame {
 
     public void setP2RadioButtonO(boolean status) {
         P2RadioButtonO.setSelected(status);
+    }
+
+    public void AwardSOS(int tileIndex, int i1, int i2){
+        if(isPlayer1Turn){
+            SIcon = new TileIcon().getRedS();
+            OIcon = new TileIcon().getRedO();
+        }
+        else {
+            SIcon = new TileIcon().getBlueS();
+            OIcon = new TileIcon().getBlueO();
+        }
+        Graphics g2D = playArea.getGraphics();
+        g2D.setPaintMode();
+        g2D.setColor(Color.BLACK);
+        JLayeredPane layeredPane = new JLayeredPane();
+
+        g2D.drawLine(playArea.getComponent(i1).getLocation().x, playArea.getComponent(i1).getLocation().y, playArea.getComponent(i2).getLocation().x, playArea.getComponent(i2).getLocation().y);
+        ((GameTile) playArea.getComponent(tileIndex)).setIcon(SIcon);
+        ((GameTile) playArea.getComponent(i1)).setIcon(OIcon);
+        ((GameTile) playArea.getComponent(i2)).setIcon(SIcon);
+        PointScored();
+    }
+
+    public void PointScored(){
+        //decide who the point goes to:
+        if (isPlayer1Turn){
+            P1Score++;
+            P1ScoreText.setText(String.valueOf(P1Score));
+        }
+        else{
+            P2Score++;
+            P2ScoreText.setText(String.valueOf(P2Score));
+        }
     }
 }

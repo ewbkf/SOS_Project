@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="64006a94-056b-4567-b3be-938e080d0ce0" name="Changes" comment="Added some children. Started to get a handle on how the program would decide if an SOS was made. Added unit testing.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOS_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SOS_Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/SOSGameForms/PlayWindowTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/SOSGameForms/PlayWindowTest.java" afterDir="false" />
     </list>
@@ -38,29 +38,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "136",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "411",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "create.test.in.the.same.root": "true",
-    "jdk.selected.JAVA_MODULE": "openjdk-19",
-    "last_opened_file_path": "C:/Users/ethan/Documents/School/UMKC/Fall2022/CS449/SOS_Project",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "editor.preferences.import"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;136&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;411&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-19&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ethan/Documents/School/UMKC/Fall2022/CS449/SOS_Project&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.import&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\School\UMKC\Fall2022\CS449\SOS_Project\src\SOSGameForms\Resources" />
@@ -109,6 +109,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PlayWindowTest.checkIntegrityOfGameTileAfterCast" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SOS_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SOSGameForms.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="SOSGameForms" />
+      <option name="MAIN_CLASS_NAME" value="SOSGameForms.PlayWindowTest" />
+      <option name="METHOD_NAME" value="checkIntegrityOfGameTileAfterCast" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlayWindowTest.checkIntegrityOfGameTileAfterCastYCoord" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SOS_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SOSGameForms.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="SOSGameForms" />
+      <option name="MAIN_CLASS_NAME" value="SOSGameForms.PlayWindowTest" />
+      <option name="METHOD_NAME" value="checkIntegrityOfGameTileAfterCastYCoord" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PlayWindowTest.checkThatXCoordinatesAreCorrectAfterTurn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SOS_Project" />
       <extension name="coverage">
@@ -141,54 +173,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayWindowTest.checkTileCoordinatesAreCorrectAfterTurn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SOS_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="SOSGameForms.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="SOSGameForms" />
-      <option name="MAIN_CLASS_NAME" value="SOSGameForms.PlayWindowTest" />
-      <option name="METHOD_NAME" value="checkTileCoordinatesAreCorrectAfterTurn" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PlayWindowTest.checkTileYCoordinatesAreCorrectAfterAfterInstantiation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SOS_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="SOSGameForms.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="SOSGameForms" />
-      <option name="MAIN_CLASS_NAME" value="SOSGameForms.PlayWindowTest" />
-      <option name="METHOD_NAME" value="checkTileYCoordinatesAreCorrectAfterAfterInstantiation" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Ant Target.Unnamed" />
       <item itemvalue="Application.RunGame" />
       <item itemvalue="JUnit.PlayWindowTest" />
-      <item itemvalue="JUnit.PlayWindowTest.checkThatXCoordinatesAreCorrectAfterTurn" />
+      <item itemvalue="JUnit.PlayWindowTest.checkIntegrityOfGameTileAfterCastYCoord" />
+      <item itemvalue="JUnit.PlayWindowTest.checkIntegrityOfGameTileAfterCast" />
       <item itemvalue="JUnit.PlayWindowTest.checkThatXCoordinatesAreCorrectAfterTurnP1S" />
-      <item itemvalue="JUnit.PlayWindowTest.checkTileCoordinatesAreCorrectAfterTurn" />
-      <item itemvalue="JUnit.PlayWindowTest.checkTileYCoordinatesAreCorrectAfterAfterInstantiation" />
+      <item itemvalue="JUnit.PlayWindowTest.checkThatXCoordinatesAreCorrectAfterTurn" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PlayWindowTest.checkThatXCoordinatesAreCorrectAfterTurnP1S" />
         <item itemvalue="JUnit.PlayWindowTest" />
+        <item itemvalue="JUnit.PlayWindowTest.checkIntegrityOfGameTileAfterCastYCoord" />
+        <item itemvalue="JUnit.PlayWindowTest.checkIntegrityOfGameTileAfterCast" />
+        <item itemvalue="JUnit.PlayWindowTest.checkThatXCoordinatesAreCorrectAfterTurnP1S" />
         <item itemvalue="JUnit.PlayWindowTest.checkThatXCoordinatesAreCorrectAfterTurn" />
-        <item itemvalue="JUnit.PlayWindowTest.checkTileYCoordinatesAreCorrectAfterAfterInstantiation" />
-        <item itemvalue="JUnit.PlayWindowTest.checkTileCoordinatesAreCorrectAfterTurn" />
       </list>
     </recent_temporary>
   </component>
