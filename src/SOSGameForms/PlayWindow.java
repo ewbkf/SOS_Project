@@ -1,7 +1,5 @@
 package SOSGameForms;
 
-import org.junit.jupiter.api.DisplayName;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -26,8 +24,6 @@ public class PlayWindow extends JFrame {
     private JLabel P1ScoreText;
     private JLabel P2ScoreText;
 
-    private Icon SIcon;
-    private Icon OIcon;
     private int tilesRemaining;
     private int P1Score = 0, P2Score = 0, CPUScore = 0;
 
@@ -104,7 +100,6 @@ public class PlayWindow extends JFrame {
             button.setState('S');
             this.lastTilePlayed = button.getCoords();
             checkForSOS(button.getCoords(), boardSize);
-            NextPlayer();
             tilesRemaining--;
         }
         if (P1RadioButtonO.isSelected() && button.isPlayable()){
@@ -113,7 +108,6 @@ public class PlayWindow extends JFrame {
             button.setState('O');
             this.lastTilePlayed = button.getCoords();
             checkForSOS(button.getCoords(), boardSize);
-            NextPlayer();
             tilesRemaining--;
         }
         if(tilesRemaining == 0){
@@ -128,7 +122,6 @@ public class PlayWindow extends JFrame {
             button.setState('S');
             this.lastTilePlayed = button.getCoords();
             checkForSOS(button.getCoords(), boardSize);
-            NextPlayer();
             tilesRemaining--;
         }
         if (P2RadioButtonO.isSelected() && button.isPlayable()){
@@ -137,7 +130,6 @@ public class PlayWindow extends JFrame {
             button.setState('O');
             this.lastTilePlayed = button.getCoords();
             checkForSOS(button.getCoords(), boardSize);
-            NextPlayer();
             tilesRemaining--;
         }
         if(tilesRemaining == 0){
@@ -190,97 +182,120 @@ public class PlayWindow extends JFrame {
     }
 
     public void checkForSOS(TileLocation last, int boardSize){
-        //converting tile coordinates to an index so that we can access it in the JPanel.
+        //converting tile coordinates to an index so that we can access it in the JPanel GridLayout.
         int playedTileIndex = (boardSize * (last.getyCoord() - 1) + (last.getxCoord() - 1)); //Index of the last tile played.
-
+        //Grabbing a copy of the last tile played.
         GameTile lastTilePlayed = (GameTile)playArea.getComponent(playedTileIndex);
-        GameTile firstTileToBeTested;
-        GameTile secondTileToBeTested;
+
         int firstTileIndex;
         int secondTileIndex;
         int boardMaxIndex = ((int)Math.pow(boardSize, 2) - 1);
+        boolean SOSAwarded = false;
+        boolean isS;
 
         if(lastTilePlayed.getState() == 'S'){
+            isS = true;
             //Above
             //Checking if the two tiles above exist.
-            if(((playedTileIndex - boardSize) > 0) && ((playedTileIndex - (boardSize*2)) > 0)){
-                //as long as there are two tiles above to be checked, we will copy those into new objects.
-                firstTileIndex  = playedTileIndex - boardSize;
-                secondTileIndex = playedTileIndex - (boardSize*2);
-
-                firstTileToBeTested = (GameTile)playArea.getComponent(firstTileIndex);
-                secondTileToBeTested = (GameTile)playArea.getComponent(secondTileIndex);
-
-                if (firstTileToBeTested.getState() == 'O' && secondTileToBeTested.getState() == 'S'){
-                    AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex);
-                }
+            firstTileIndex = playedTileIndex - boardSize;
+            secondTileIndex = firstTileIndex - boardSize;
+            //as long as there are two tiles above to be checked, we will copy those into new objects.
+            if((firstTileIndex > 0) && (secondTileIndex) > 0){
+                SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, isS);
             }
 
-            //TODO: topRight
-            //if((playedTileIndex - boardSize + 1)%boardSize!=0){}
-
+            //topRight
+            firstTileIndex = (playedTileIndex - boardSize + 1);
+            secondTileIndex = (firstTileIndex - boardSize + 1);
+            if(((firstTileIndex > 0) && (secondTileIndex > 0)) && ((firstTileIndex % boardSize != 0) && (secondTileIndex % boardSize != 0))){
+                SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, isS);
+            }
 
             //Right
+            firstTileIndex  = (playedTileIndex + 1);
+            secondTileIndex = (playedTileIndex + 2);
             //if the next item to the left's index is evenly divisible by the board size, we know that it is the first item in the next line.
-            if(((playedTileIndex + 1)%boardSize != 0) && ((playedTileIndex + 2)%boardSize != 0) && ((playedTileIndex + 1) <= boardMaxIndex) && ((playedTileIndex + 2) <= boardMaxIndex)){
-                firstTileIndex  = (playedTileIndex + 1);
-                secondTileIndex = (playedTileIndex + 2);
-
-                firstTileToBeTested = (GameTile)playArea.getComponent(firstTileIndex);
-                secondTileToBeTested = (GameTile)playArea.getComponent(secondTileIndex);
-
-                if (firstTileToBeTested.getState() == 'O' && secondTileToBeTested.getState() == 'S'){
-                    AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex);
-                }
+            if(((firstTileIndex * secondTileIndex) % boardSize != 0) && (firstTileIndex <= boardMaxIndex) && (secondTileIndex <= boardMaxIndex)){
+                SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, isS);
             }
 
-            //TODO: bottomRight
+            //bottomRight
+            firstTileIndex = (playedTileIndex + boardSize + 1);
+            secondTileIndex = (firstTileIndex + boardSize + 1);
+            if((firstTileIndex * secondTileIndex) % boardSize != 0 && firstTileIndex <= boardMaxIndex && secondTileIndex <= boardMaxIndex){
+                SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, isS);
+            }
 
             //Bottom
-            if(((playedTileIndex + boardSize) < ((boardSize*boardSize)-1)) && ((playedTileIndex + (boardSize*2)) < ((boardSize*boardSize)-1))){
-                //as long as there are two tiles above to be checked, we will copy those into new objects.
-                firstTileIndex  = playedTileIndex + boardSize;
-                secondTileIndex = playedTileIndex + (boardSize*2);
-
-                firstTileToBeTested = (GameTile)playArea.getComponent(firstTileIndex);
-                secondTileToBeTested = (GameTile)playArea.getComponent(secondTileIndex);
-
-                if (firstTileToBeTested.getState() == 'O' && secondTileToBeTested.getState() == 'S'){
-                    AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex);
-                }
+            firstTileIndex = playedTileIndex + boardSize;
+            secondTileIndex = firstTileIndex + boardSize;
+            if(firstTileIndex < boardMaxIndex && secondTileIndex < boardMaxIndex){
+                //as long as there are two tiles below to be checked, we will copy those into new objects.
+                SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, isS);
             }
-            //TODO: bottomLeft
+
+            //bottomLeft
+            firstTileIndex = (playedTileIndex + boardSize - 1);
+            secondTileIndex = (firstTileIndex + boardSize - 1);
+            if(firstTileIndex <= boardMaxIndex && secondTileIndex <= boardMaxIndex && (playedTileIndex * firstTileIndex) % boardSize != 0){
+                SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, isS);
+            }
 
             //Left
-            if(((playedTileIndex)%boardSize != 0) && ((playedTileIndex - 1)%boardSize != 0)){
-                firstTileIndex  = (playedTileIndex - 1);
-                secondTileIndex = (playedTileIndex - 2);
-
-                firstTileToBeTested = (GameTile)playArea.getComponent(firstTileIndex);
-                secondTileToBeTested = (GameTile)playArea.getComponent(secondTileIndex);
-
-                if (firstTileToBeTested.getState() == 'O' && secondTileToBeTested.getState() == 'S'){
-                    AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex);
-                }
+            firstTileIndex  = (playedTileIndex - 1);
+            secondTileIndex = (playedTileIndex - 2);
+            if(((firstTileIndex * playedTileIndex) % boardSize != 0) && firstTileIndex > 0 && secondTileIndex >= 0){
+                SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, isS);
             }
 
-            //TODO: topLeft
+            //topLeft
+            firstTileIndex = (playedTileIndex - boardSize - 1);
+            secondTileIndex = (firstTileIndex - boardSize - 1);
+            if(((firstTileIndex * playedTileIndex) % boardSize != 0) && firstTileIndex > 0 && secondTileIndex >= 0){
+                SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, isS);
+            }
 
         }
+
         else if(lastTilePlayed.getState() == 'O'){
-            //TODO: top -> bottom
+            isS = false;
 
-            //TODO: right -> left
+            //top -> bottom
+            firstTileIndex = (playedTileIndex - boardSize);     //tile above
+            secondTileIndex = (playedTileIndex + boardSize);    //tile below
+            if(firstTileIndex >= 0 && secondTileIndex <= boardMaxIndex){
+                SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, isS);
+            }
 
-            //TODO: topRight -> bottomLeft
+            //left -> right
+            firstTileIndex = (playedTileIndex - 1);     //left tile
+            secondTileIndex = (playedTileIndex + 1);    //right tile
+            if((playedTileIndex * secondTileIndex) % boardSize != 0 && firstTileIndex >=0 && secondTileIndex <= boardMaxIndex){
+                SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, isS);
+            }
 
-            //TODO: topLeft -> bottomRight
+            //topLeft -> bottomRight
+            firstTileIndex = (playedTileIndex - boardSize - 1);
+            secondTileIndex = (playedTileIndex + boardSize + 1);
+            if(firstTileIndex >= 0 && ((playedTileIndex * secondTileIndex) % boardSize != 0) && secondTileIndex <= boardMaxIndex){
+                SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, isS);
+            }
+
+            //bottomLeft -> topRight
+            firstTileIndex = (playedTileIndex + boardSize - 1);
+            secondTileIndex =  (playedTileIndex - boardSize + 1);
+            if(firstTileIndex <= boardMaxIndex && ((playedTileIndex * secondTileIndex) % boardSize != 0) && secondTileIndex >= 0){
+                SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, isS);
+            }
         }
         else if (lastTilePlayed.getState() == ' '){
             //TODO: throw an exception as the tile was not played correctly.
         }
         else {
-            //TODO: if for some reason this value is not S or O then there is an issue.
+            //TODO: something I guess.
+        }
+        if(!SOSAwarded){
+            NextPlayer();
         }
     }
 
@@ -300,7 +315,14 @@ public class PlayWindow extends JFrame {
         P2RadioButtonO.setSelected(status);
     }
 
-    public void AwardSOS(int tileIndex, int i1, int i2){
+    public boolean AwardSOS(int iP, int i1, int i2, boolean isS){
+        GameTile firstTileToBeTested;
+        GameTile secondTileToBeTested;
+        firstTileToBeTested = (GameTile)playArea.getComponent(i1);
+        secondTileToBeTested = (GameTile)playArea.getComponent(i2);
+
+        Icon SIcon;
+        Icon OIcon;
         if(isPlayer1Turn){
             SIcon = new TileIcon().getRedS();
             OIcon = new TileIcon().getRedO();
@@ -309,16 +331,28 @@ public class PlayWindow extends JFrame {
             SIcon = new TileIcon().getBlueS();
             OIcon = new TileIcon().getBlueO();
         }
-        Graphics g2D = playArea.getGraphics();
-        g2D.setPaintMode();
-        g2D.setColor(Color.BLACK);
-        JLayeredPane layeredPane = new JLayeredPane();
-
-        g2D.drawLine(playArea.getComponent(i1).getLocation().x, playArea.getComponent(i1).getLocation().y, playArea.getComponent(i2).getLocation().x, playArea.getComponent(i2).getLocation().y);
-        ((GameTile) playArea.getComponent(tileIndex)).setIcon(SIcon);
-        ((GameTile) playArea.getComponent(i1)).setIcon(OIcon);
-        ((GameTile) playArea.getComponent(i2)).setIcon(SIcon);
-        PointScored();
+        if(isS) {
+            if (firstTileToBeTested.getState() == 'O' && secondTileToBeTested.getState() == 'S') {
+                ((GameTile) playArea.getComponent(iP)).setIcon(SIcon);
+                ((GameTile) playArea.getComponent(i1)).setIcon(OIcon);
+                ((GameTile) playArea.getComponent(i2)).setIcon(SIcon);
+                PointScored();
+                return true;
+            } else {
+                return false;
+            }
+        }
+        else{
+            if (firstTileToBeTested.getState() == 'S' && secondTileToBeTested.getState() == 'S') {
+                ((GameTile) playArea.getComponent(i1)).setIcon(SIcon);
+                ((GameTile) playArea.getComponent(iP)).setIcon(OIcon);
+                ((GameTile) playArea.getComponent(i2)).setIcon(SIcon);
+                PointScored();
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 
     public void PointScored(){
