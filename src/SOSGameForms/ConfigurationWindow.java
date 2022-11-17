@@ -48,8 +48,13 @@ public class ConfigurationWindow extends JFrame{
                 if (gameSelectGroup.getSelection() == null){
                     gameTypeAlert.setVisible(true);
                 }
-                if (boardSize != 0 && gameSelectGroup.getSelection() != null && playerSelectGroup.getSelection() != null) {
-                    PlayWindowGeneral game = new PlayWindowGeneral(boardSize, gameType, playerType);
+                if (boardSize != 0 && gameSelectGroup.getSelection() != null && playerSelectGroup.getSelection() != null && simpleGameRadioButton.isSelected()) {
+                    PlayWindowSimple game = new PlayWindowSimple(boardSize, playerType);
+
+                    frame.setVisible(false);
+                }
+                if (boardSize != 0 && gameSelectGroup.getSelection() != null && playerSelectGroup.getSelection() != null && generalGameRadioButton.isSelected()) {
+                    PlayWindowGeneral game = new PlayWindowGeneral(boardSize, playerType);
 
                     frame.setVisible(false);
                 }

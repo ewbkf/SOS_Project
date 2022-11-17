@@ -8,56 +8,65 @@ import java.util.Objects;
 
 public class PlayWindow extends JFrame {
     //static private JFrame frame;
-    private JPanel mainPanel;
+    protected JPanel mainPanel;
     private JRadioButton P1RadioButtonS;
     private JRadioButton P1RadioButtonO;
     private JRadioButton P2RadioButtonS;
     private JRadioButton P2RadioButtonO;
     private JLabel titleSOS;
-    private JLabel gameOverLabel;
-    private JPanel P1Panel;
-    private JPanel P2Panel;
-    private JPanel titlePanel;
-    private JPanel footerPanel;
-    private JButton replayButton;
-    private JButton quitButton;
-    private JLabel P1ScoreText;
-    private JLabel P2ScoreText;
+    protected JLabel gameOverLabel;
+    protected JPanel P1Panel;
+    protected JPanel P2Panel;
+    protected JPanel titlePanel;
+    protected JPanel footerPanel;
+    protected JButton replayButton;
+    protected JButton quitButton;
+    protected JLabel P1ScoreText;
+    protected JLabel P2ScoreText;
+    protected JPanel scorePanelP1;
+    protected JPanel scorePanelP2;
+    protected JPanel footerButtonPanel;
+    protected JLabel PLayer1ScoreText;
+    protected JLabel Player2ScoreText;
+    protected JLabel Player1WinsText;
+    protected JLabel Player2WinsText;
+    protected JLabel CPU1WinsText;
+    protected JLabel CPU2WinsText;
+    protected int tilesRemaining;
+    protected int P1Score = 0, P2Score = 0, CPUScore = 0;
 
-    private int tilesRemaining;
-    private int P1Score = 0, P2Score = 0, CPUScore = 0;
-
-    private int gameType = 0;
     private int boardSize;
     public TileLocation lastTilePlayed = new TileLocation();
 
     private JPanel playArea;
 
-    private final Color redTeamColor = new Color(225, 112,109);
-    private final Color blueTeamColor = new Color(112,133,225);
-    private final Color offTurnColor = new Color(150,150,150);
+    protected final Color redTeamColor = new Color(225, 112,109);
+    protected final Color blueTeamColor = new Color(112,133,225);
+    protected final Color offTurnColor = new Color(150,150,150);
     protected boolean isPlayer1Turn = false; //is it player ones turn? if not, its player two/ the computers turn.
     protected boolean gameOver = false;
 
-    public PlayWindow(int size, int gMode, int pMode) throws HeadlessException {
+    public PlayWindow(int size, int pMode) throws HeadlessException {
         ImageIcon frameIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("Resources/SOS_windowIcon.png")));
         this.setIconImage(frameIcon.getImage());
         boardSize = size;
+
         NextPlayer();
+
         tilesRemaining = (size * size);
+        titleSOS.setVisible(true);
         gameOverLabel.setVisible(false);
         replayButton.setVisible(false);
         quitButton.setVisible(false);
-        Player player1 = new Player();
+        Player1WinsText.setVisible(false);
+        Player2WinsText.setVisible(false);
+        CPU1WinsText.setVisible(false);
+        CPU2WinsText.setVisible(false);
 
         playArea = new JPanel();
         playArea.setLayout(new GridLayout(size, size, 0, 0));
         playArea.setMaximumSize(new Dimension(64,64));
         mainPanel.add(playArea);
-
-        if (pMode == 1) {
-            Player player2 = new Player();
-        }
 
         //frame = new JFrame("PlayWindow");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -67,8 +76,6 @@ public class PlayWindow extends JFrame {
         this.setLocationRelativeTo(null);
 
         populateBoard(playArea, size);
-
-
 
         replayButton.addActionListener(new ActionListener() {
             @Override
@@ -82,6 +89,7 @@ public class PlayWindow extends JFrame {
                PlayWindow.this.dispose();
             }
         });
+
         this.pack();
     }
 
@@ -90,7 +98,7 @@ public class PlayWindow extends JFrame {
             if(isPlayer1Turn){ P1MakeMove(button); }
             else{ P2MakeMove(button); }
         }
-        //else: if the game is over, nothing happens.
+        checkForWin(P1Score, P2Score);
     }
 
     public void P1MakeMove(GameTile button){
@@ -109,9 +117,6 @@ public class PlayWindow extends JFrame {
             this.lastTilePlayed = button.getCoords();
             checkForSOS(button.getCoords(), boardSize);
             tilesRemaining--;
-        }
-        if(tilesRemaining == 0){
-            GameOver();
         }
     }
 
@@ -132,18 +137,6 @@ public class PlayWindow extends JFrame {
             checkForSOS(button.getCoords(), boardSize);
             tilesRemaining--;
         }
-        if(tilesRemaining == 0){
-            GameOver();
-        }
-    }
-
-    public void GameOver(){
-        //TODO: Set game over behavior
-        gameOverLabel.setVisible(true);
-        gameOver = true;
-        replayButton.setVisible(true);
-        quitButton.setVisible(true);
-        this.pack();
     }
 
     public void NextPlayer(){
@@ -242,16 +235,16 @@ public class PlayWindow extends JFrame {
             }
 
             //Left
-            firstTileIndex  = (playedTileIndex - 1);
-            secondTileIndex = (playedTileIndex - 2);
-            if(((firstTileIndex * playedTileIndex) % boardSize != 0) && firstTileIndex > 0 && secondTileIndex >= 0){
-                SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, isS);
+            firstTileIndex  = (playedTileIndex - 2);
+            secondTileIndex = (playedTileIndex - 1);
+            if((((secondTileIndex % boardSize) != 0  && (playedTileIndex % boardSize) != 0) && (firstTileIndex >= 0 && secondTileIndex > 0))){
+                SOSAwarded = AwardSOS(playedTileIndex, secondTileIndex, firstTileIndex, isS);
             }
 
             //topLeft
             firstTileIndex = (playedTileIndex - boardSize - 1);
             secondTileIndex = (firstTileIndex - boardSize - 1);
-            if(((firstTileIndex * playedTileIndex) % boardSize != 0) && firstTileIndex > 0 && secondTileIndex >= 0){
+            if((((firstTileIndex % boardSize) != 0 && (playedTileIndex % boardSize) != 0) && firstTileIndex > 0 && secondTileIndex >= 0)){
                 SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, isS);
             }
 
@@ -288,12 +281,7 @@ public class PlayWindow extends JFrame {
                 SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, isS);
             }
         }
-        else if (lastTilePlayed.getState() == ' '){
-            //TODO: throw an exception as the tile was not played correctly.
-        }
-        else {
-            //TODO: something I guess.
-        }
+
         if(!SOSAwarded){
             NextPlayer();
         }
@@ -302,27 +290,24 @@ public class PlayWindow extends JFrame {
     public void setP1RadioButtonS(boolean status) {
         P1RadioButtonS.setSelected(status);
     }
-
     public void setP1RadioButtonO(boolean status) {
         P1RadioButtonO.setSelected(status);
     }
-
     public void setP2RadioButtonS(boolean status) {
         P2RadioButtonS.setSelected(status);
     }
-
     public void setP2RadioButtonO(boolean status) {
         P2RadioButtonO.setSelected(status);
     }
 
     public boolean AwardSOS(int iP, int i1, int i2, boolean isS){
+        Icon SIcon;
+        Icon OIcon;
         GameTile firstTileToBeTested;
         GameTile secondTileToBeTested;
         firstTileToBeTested = (GameTile)playArea.getComponent(i1);
         secondTileToBeTested = (GameTile)playArea.getComponent(i2);
 
-        Icon SIcon;
-        Icon OIcon;
         if(isPlayer1Turn){
             SIcon = new TileIcon().getRedS();
             OIcon = new TileIcon().getRedO();
@@ -366,4 +351,18 @@ public class PlayWindow extends JFrame {
             P2ScoreText.setText(String.valueOf(P2Score));
         }
     }
+
+    protected void GameOver(){
+        //TODO: Set game over behavior
+        gameOverLabel.setVisible(true);
+        gameOver = true;
+        replayButton.setVisible(true);
+        quitButton.setVisible(true);
+        this.pack();
+    }
+
+    protected void checkForWin(int P1, int P2){
+        //Overridden in child class
+    }
+
 }

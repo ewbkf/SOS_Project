@@ -4,15 +4,13 @@ import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
 
-import java.awt.*;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PlayWindowTest {
-    PlayWindow testWindow = new PlayWindow(3, 1, 1);
+    PlayWindow testWindow = new PlayWindow(3,  1);
     GameTile testButton = new GameTile(new TileLocation(6,9), new TileIcon().getBLANK());
 
-    //Tests to make sure that teh tile's coordinates are correct after instantiation.
+    //Tests to make sure that the tile's coordinates are correct after instantiation.
     @Test
     public void checkTileXCoordinatesAreCorrectAfterAfterInstantiation(){
         testButton.setState('S');
@@ -58,4 +56,36 @@ class PlayWindowTest {
 
         assertEquals(9, resultingTile.getYCoord());
     }
+
+    //TODO: Tests for different successful SOS's
+    //Given the given situation provides an SOS, the expectation should be that the turn does not change and
+    //The player playing the SOS gains a point.
+    //TODO: S cases
+
+    //Above
+
+    //TopRight
+
+    //Right
+
+    //bottomRight
+
+    //Bottom
+
+    //bottomLeft
+
+    //Left
+
+    //topLeft
+
+    //TODO: O cases
+
+    //top -> bottom
+
+    //left -> right
+
+    //topLeft -> bottomRight
+
+    //bottomLeft -> topRight
+
 }

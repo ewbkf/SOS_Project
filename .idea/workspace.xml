@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64006a94-056b-4567-b3be-938e080d0ce0" name="Changes" comment="Added some children. Started to get a handle on how the program would decide if an SOS was made. Added unit testing.">
+    <list default="true" id="64006a94-056b-4567-b3be-938e080d0ce0" name="Changes" comment="Game can now check for SOS in both cases and will short circuit if any of the adjacent tiles are not in a straight line. i.e. - if we are checking for a left to right SOS and the tile to the left is on a different line, we simply skip that check all together.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/ConfigurationWindow.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/ConfigurationWindow.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/ConfigurationWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/ConfigurationWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowGeneral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowGeneral.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowSimple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowSimple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/Player.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/SOSGameForms/PlayWindowTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/SOSGameForms/PlayWindowTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +66,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -207,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667799553292</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Game can now check for SOS in both cases and will short circuit if any of the adjacent tiles are not in a straight line. i.e. - if we are checking for a left to right SOS and the tile to the left is on a different line, we simply skip that check all together.">
+      <created>1668560795946</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1668560795946</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -227,17 +241,7 @@
     <MESSAGE value="Added some classes to deal with changing the tiles as they are played." />
     <MESSAGE value="Small changes, added some methods to PlayWindow" />
     <MESSAGE value="Added some children. Started to get a handle on how the program would decide if an SOS was made. Added unit testing." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some children. Started to get a handle on how the program would decide if an SOS was made. Added unit testing." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/SOSGameForms/PlayWindow.java</url>
-          <line>90</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Game can now check for SOS in both cases and will short circuit if any of the adjacent tiles are not in a straight line. i.e. - if we are checking for a left to right SOS and the tile to the left is on a different line, we simply skip that check all together." />
+    <option name="LAST_COMMIT_MESSAGE" value="Game can now check for SOS in both cases and will short circuit if any of the adjacent tiles are not in a straight line. i.e. - if we are checking for a left to right SOS and the tile to the left is on a different line, we simply skip that check all together." />
   </component>
 </project>
