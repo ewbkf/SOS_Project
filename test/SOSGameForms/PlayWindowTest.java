@@ -63,20 +63,52 @@ class PlayWindowTest {
     //TODO: S cases
 
     //Above
+    @Test
+    public void CheckThatTurnDoesNotChangeOnSOSAbove(){
+
+    }
 
     //TopRight
+    @Test
+    public void CheckThatTurnDoesNotChangeOnSOSTopRight(){
+
+    }
 
     //Right
+    @Test
+    public void CheckThatTurnDoesNotChangeOnSOSRight(){
+
+    }
 
     //bottomRight
+    @Test
+    public void CheckThatTurnDoesNotChangeOnSOSBottomRight(){
+
+    }
 
     //Bottom
+    @Test
+    public void CheckThatTurnDoesNotChangeOnSOSBottom(){
+
+    }
 
     //bottomLeft
+    @Test
+    public void CheckThatTurnDoesNotChangeOnSOSBottomLeft(){
+
+    }
 
     //Left
+    @Test
+    public void CheckThatTurnDoesNotChangeOnSOSLeft(){
+
+    }
 
     //topLeft
+    @Test
+    public void CheckThatTurnDoesNotChangeOnSOSTopLeft(){
+
+    }
 
     //TODO: O cases
 
@@ -89,3 +121,4 @@ class PlayWindowTest {
     //bottomLeft -> topRight
 
 }
+

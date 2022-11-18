@@ -240,7 +240,7 @@
             </constraints>
             <properties>
               <font name="Consolas" size="16" style="1"/>
-              <text value="Player 2 Wins!"/>
+              <text value="Player Two Wins!"/>
             </properties>
           </component>
           <component id="66c40" class="javax.swing.JLabel" binding="CPU1WinsText">

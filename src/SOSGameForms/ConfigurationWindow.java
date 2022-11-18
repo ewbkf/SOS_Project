@@ -21,10 +21,10 @@ public class ConfigurationWindow extends JFrame{
     private JLabel gameSelectMenuTitle;
     private JLabel gameTypeAlert;
     private JLabel playerTypeAlert;
+    private JRadioButton computerVComputerRadioButton;
     private ButtonGroup playerSelectGroup;
     private ButtonGroup gameSelectGroup;
     private int boardSize = 0;
-    private int gameType = 0;
     private int playerType = 0;
     private final int maxBoardSize = 15;
     private final int minBoardSize = 3;
@@ -36,6 +36,7 @@ public class ConfigurationWindow extends JFrame{
         invalidBoardSizeAlert.setVisible(false);
         gameTypeAlert.setVisible(false);
         playerTypeAlert.setVisible(false);
+
         STARTButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -78,22 +79,7 @@ public class ConfigurationWindow extends JFrame{
                 }
             }
         });
-        simpleGameRadioButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(simpleGameRadioButton.isSelected()){
-                    gameType = 1;
-                }
-            }
-        });
-        generalGameRadioButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(generalGameRadioButton.isSelected()){
-                    gameType = 2;
-                }
-            }
-        });
+
         playerVPlayerRadioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -102,6 +88,7 @@ public class ConfigurationWindow extends JFrame{
                 }
             }
         });
+
         playerVComputerRadioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -110,6 +97,16 @@ public class ConfigurationWindow extends JFrame{
                 }
             }
         });
+
+        computerVComputerRadioButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(computerVComputerRadioButton.isSelected()){
+                    playerType = 3;
+                }
+            }
+        });
+
     }
 
     public static void main(String[] args) {
