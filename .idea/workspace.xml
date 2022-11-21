@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64006a94-056b-4567-b3be-938e080d0ce0" name="Changes" comment="Added some additional capabilities in checking for SOS. Finally works for a few of the directions. Will need additional testing and more cases.">
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/ComputerPlayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/HumanPlayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_15_2022_12_42_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_15_2022_12_42_PM__Changes_.xml" afterDir="false" />
+    <list default="true" id="64006a94-056b-4567-b3be-938e080d0ce0" name="Changes" comment="General and Simple games now work with PvP. No CPU implemented as of yet, but I have a good idea of how I'd like to do it. Weird things going on with SOS checking, turn is not being  retained on a successful SOS, will need unit testing. &#10;&#10;Need to design a new title image for different game modes.">
+      <change afterPath="$PROJECT_DIR$/test/SOSGameForms/ComputerPlayerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/ConfigurationWindow.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/ConfigurationWindow.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/ConfigurationWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/ConfigurationWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/SOSGameForms/PlayWindowTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/SOSGameForms/PlayWindowTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,11 +14,14 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -36,9 +33,6 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2H0jlrV9a3VYfeDz0dCkzJsAjWj" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -57,16 +51,22 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "136",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "411",
+    "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers": "true",
     "create.test.in.the.same.root": "true",
     "jdk.selected.JAVA_MODULE": "openjdk-19",
     "last_opened_file_path": "C:/Users/ethan/Documents/School/UMKC/Fall2022/CS449/SOS_Project",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -102,7 +102,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayWindowTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in SOS_Project" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SOS_Project" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TileIconTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SOS_Project" />
       <extension name="coverage">
         <pattern>
@@ -111,13 +119,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="SOSGameForms" />
-      <option name="MAIN_CLASS_NAME" value="SOSGameForms.PlayWindowTest" />
+      <option name="MAIN_CLASS_NAME" value="SOSGameForms.TileIconTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayWindowTest.checkIntegrityOfGameTileAfterCast" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TileIconTest.myBalls" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SOS_Project" />
       <extension name="coverage">
         <pattern>
@@ -126,56 +134,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="SOSGameForms" />
-      <option name="MAIN_CLASS_NAME" value="SOSGameForms.PlayWindowTest" />
-      <option name="METHOD_NAME" value="checkIntegrityOfGameTileAfterCast" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PlayWindowTest.checkIntegrityOfGameTileAfterCastYCoord" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SOS_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="SOSGameForms.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="SOSGameForms" />
-      <option name="MAIN_CLASS_NAME" value="SOSGameForms.PlayWindowTest" />
-      <option name="METHOD_NAME" value="checkIntegrityOfGameTileAfterCastYCoord" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PlayWindowTest.checkThatXCoordinatesAreCorrectAfterTurn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SOS_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="SOSGameForms.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="SOSGameForms" />
-      <option name="MAIN_CLASS_NAME" value="SOSGameForms.PlayWindowTest" />
-      <option name="METHOD_NAME" value="checkThatXCoordinatesAreCorrectAfterTurn" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PlayWindowTest.checkThatXCoordinatesAreCorrectAfterTurnP1S" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SOS_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="SOSGameForms.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="SOSGameForms" />
-      <option name="MAIN_CLASS_NAME" value="SOSGameForms.PlayWindowTest" />
-      <option name="METHOD_NAME" value="checkThatXCoordinatesAreCorrectAfterTurnP1S" />
+      <option name="MAIN_CLASS_NAME" value="SOSGameForms.TileIconTest" />
+      <option name="METHOD_NAME" value="myBalls" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -184,19 +144,15 @@
     <list>
       <item itemvalue="Ant Target.Unnamed" />
       <item itemvalue="Application.RunGame" />
-      <item itemvalue="JUnit.PlayWindowTest" />
-      <item itemvalue="JUnit.PlayWindowTest.checkIntegrityOfGameTileAfterCastYCoord" />
-      <item itemvalue="JUnit.PlayWindowTest.checkIntegrityOfGameTileAfterCast" />
-      <item itemvalue="JUnit.PlayWindowTest.checkThatXCoordinatesAreCorrectAfterTurnP1S" />
-      <item itemvalue="JUnit.PlayWindowTest.checkThatXCoordinatesAreCorrectAfterTurn" />
+      <item itemvalue="JUnit.All in SOS_Project" />
+      <item itemvalue="JUnit.TileIconTest" />
+      <item itemvalue="JUnit.TileIconTest.myBalls" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PlayWindowTest" />
-        <item itemvalue="JUnit.PlayWindowTest.checkIntegrityOfGameTileAfterCastYCoord" />
-        <item itemvalue="JUnit.PlayWindowTest.checkIntegrityOfGameTileAfterCast" />
-        <item itemvalue="JUnit.PlayWindowTest.checkThatXCoordinatesAreCorrectAfterTurnP1S" />
-        <item itemvalue="JUnit.PlayWindowTest.checkThatXCoordinatesAreCorrectAfterTurn" />
+        <item itemvalue="JUnit.TileIconTest" />
+        <item itemvalue="JUnit.TileIconTest.myBalls" />
+        <item itemvalue="JUnit.All in SOS_Project" />
       </list>
     </recent_temporary>
   </component>
@@ -208,6 +164,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667429051372</updated>
+      <workItem from="1669007240690" duration="2138000" />
     </task>
     <task id="LOCAL-00001" summary="Refactoring (or at least trying to)">
       <created>1667512378308</created>
@@ -258,8 +215,18 @@
       <option name="project" value="LOCAL" />
       <updated>1667799553292</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Game can now check for SOS in both cases and will short circuit if any of the adjacent tiles are not in a straight line. i.e. - if we are checking for a left to right SOS and the tile to the left is on a different line, we simply skip that check all together.">
+      <created>1668560795946</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1668560795946</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -278,6 +245,7 @@
     <MESSAGE value="Added some classes to deal with changing the tiles as they are played." />
     <MESSAGE value="Small changes, added some methods to PlayWindow" />
     <MESSAGE value="Added some children. Started to get a handle on how the program would decide if an SOS was made. Added unit testing." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some children. Started to get a handle on how the program would decide if an SOS was made. Added unit testing." />
+    <MESSAGE value="Game can now check for SOS in both cases and will short circuit if any of the adjacent tiles are not in a straight line. i.e. - if we are checking for a left to right SOS and the tile to the left is on a different line, we simply skip that check all together." />
+    <option name="LAST_COMMIT_MESSAGE" value="Game can now check for SOS in both cases and will short circuit if any of the adjacent tiles are not in a straight line. i.e. - if we are checking for a left to right SOS and the tile to the left is on a different line, we simply skip that check all together." />
   </component>
 </project>

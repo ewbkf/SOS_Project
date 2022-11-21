@@ -10,6 +10,11 @@ class PlayWindowTest {
     PlayWindow testWindow = new PlayWindow(3,  1);
     GameTile testButton = new GameTile(new TileLocation(6,9), new TileIcon().getBLANK());
 
+    @Test
+    public  void CheckCorrectGameMode(){
+        //Input: checks the game type of the current object and checks against what was expected.
+    }
+
     //Tests to make sure that the tile's coordinates are correct after instantiation.
     @Test
     public void checkTileXCoordinatesAreCorrectAfterAfterInstantiation(){
