@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64006a94-056b-4567-b3be-938e080d0ce0" name="Changes" comment="General and Simple games now work with PvP. No CPU implemented as of yet, but I have a good idea of how I'd like to do it. Weird things going on with SOS checking, turn is not being  retained on a successful SOS, will need unit testing. &#10;&#10;Need to design a new title image for different game modes.">
-      <change afterPath="$PROJECT_DIR$/test/SOSGameForms/ComputerPlayerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/SOSGameForms/PlayWindowTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/SOSGameForms/PlayWindowTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +162,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667429051372</updated>
-      <workItem from="1669007240690" duration="2138000" />
+      <workItem from="1669007240690" duration="2439000" />
     </task>
     <task id="LOCAL-00001" summary="Refactoring (or at least trying to)">
       <created>1667512378308</created>
@@ -222,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668560795946</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="General and Simple games now work with PvP. No CPU implemented as of yet, but I have a good idea of how I'd like to do it. Weird things going on with SOS checking, turn is not being  retained on a successful SOS, will need unit testing. &#10;&#10;Need to design a new title image for different game modes.">
+      <created>1669010287160</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1669010287160</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,6 +251,7 @@
     <MESSAGE value="Small changes, added some methods to PlayWindow" />
     <MESSAGE value="Added some children. Started to get a handle on how the program would decide if an SOS was made. Added unit testing." />
     <MESSAGE value="Game can now check for SOS in both cases and will short circuit if any of the adjacent tiles are not in a straight line. i.e. - if we are checking for a left to right SOS and the tile to the left is on a different line, we simply skip that check all together." />
-    <option name="LAST_COMMIT_MESSAGE" value="Game can now check for SOS in both cases and will short circuit if any of the adjacent tiles are not in a straight line. i.e. - if we are checking for a left to right SOS and the tile to the left is on a different line, we simply skip that check all together." />
+    <MESSAGE value="General and Simple games now work with PvP. No CPU implemented as of yet, but I have a good idea of how I'd like to do it. Weird things going on with SOS checking, turn is not being  retained on a successful SOS, will need unit testing. &#10;&#10;Need to design a new title image for different game modes." />
+    <option name="LAST_COMMIT_MESSAGE" value="General and Simple games now work with PvP. No CPU implemented as of yet, but I have a good idea of how I'd like to do it. Weird things going on with SOS checking, turn is not being  retained on a successful SOS, will need unit testing. &#10;&#10;Need to design a new title image for different game modes." />
   </component>
 </project>
