@@ -31,6 +31,10 @@ public class ConfigurationWindow extends JFrame{
 
     public ConfigurationWindow() throws HeadlessException {
         ImageIcon frameIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("Resources/SOS_windowIcon.png")));
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
+        frame.pack();
         frame.setIconImage(frameIcon.getImage());
         sizeSavedText.setVisible(false);
         invalidBoardSizeAlert.setVisible(false);
@@ -51,13 +55,13 @@ public class ConfigurationWindow extends JFrame{
                 }
                 if (boardSize != 0 && gameSelectGroup.getSelection() != null && playerSelectGroup.getSelection() != null && simpleGameRadioButton.isSelected()) {
                     PlayWindowSimple game = new PlayWindowSimple(boardSize, playerType);
-
-                    frame.setVisible(false);
+                    frame.dispose();
+                    //frame.setVisible(false);
                 }
                 if (boardSize != 0 && gameSelectGroup.getSelection() != null && playerSelectGroup.getSelection() != null && generalGameRadioButton.isSelected()) {
                     PlayWindowGeneral game = new PlayWindowGeneral(boardSize, playerType);
-
-                    frame.setVisible(false);
+                    frame.dispose();
+                    //frame.setVisible(false);
                 }
             }
         });

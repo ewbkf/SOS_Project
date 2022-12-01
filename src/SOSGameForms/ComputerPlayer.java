@@ -102,6 +102,7 @@ public class ComputerPlayer extends Player{
         }
 
         try{
+
             TimeUnit.SECONDS.sleep(randNum.nextInt(3)); //Hopefully will have the comp wait a couple of seconds before returning its decision.
         }
         catch(InterruptedException e){

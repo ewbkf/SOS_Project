@@ -1,13 +1,15 @@
 package SOSGameForms;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class PlayWindowSimple extends PlayWindow{
 
-    Color simpleGameColor = new Color(108, 108, 108, 255);
+    Color simpleGameColor = new Color(0, 255, 255, 255);
 
-    public PlayWindowSimple(int size, int pMode) throws HeadlessException {
-        super(size, pMode);
+    public PlayWindowSimple(int boardSize, int pMode) throws HeadlessException {
+        super(boardSize, pMode);
         titlePanel.setBackground(simpleGameColor);
         scorePanelP1.setBackground(simpleGameColor);
         scorePanelP2.setBackground(simpleGameColor);
@@ -17,6 +19,27 @@ public class PlayWindowSimple extends PlayWindow{
         P2ScoreText.setVisible(false);
         PLayer1ScoreText.setVisible(false);
         Player2ScoreText.setVisible(false);
+
+        replayButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PlayWindowSimple newGame = new PlayWindowSimple(boardSize, 0);
+                PlayWindowSimple.this.dispose();
+            }
+        });
+        newGameButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ConfigurationWindow newGame = new ConfigurationWindow();
+                PlayWindowSimple.this.dispose();
+            }
+        });
+        quitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
     }
 
     @Override
