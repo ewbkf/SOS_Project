@@ -8,9 +8,17 @@ import java.util.concurrent.TimeUnit;
 
 public class ComputerPlayer extends Player{
     protected int boardSize;
+    //Used to calculate the max index. This way the computer will know what tiles exist.
+
     protected int maxIndex;
-    private final long timestamp = System.currentTimeMillis() / 1000;   //gets UTC time to seed the (pseudo)random number generator.
+    //when the game begins, the max index is generated for the computer player.
+
+    private final long timestamp = System.currentTimeMillis() / 1000;
+    //gets UTC time to seed the (pseudo)random number generator.
+
     private final Random randNum = new Random(timestamp);
+    //Random num generator
+
     protected int numberOfS;
     protected int numberOfO;
 
@@ -18,6 +26,7 @@ public class ComputerPlayer extends Player{
         super();
         boardSize = bSize;
         maxIndex = (boardSize * boardSize) - 1;
+        isBot = true;
     }
 
     public int FindNextTileToPlay(JPanel playArea){
@@ -85,7 +94,7 @@ public class ComputerPlayer extends Player{
 
         //bottomLeft
         adjacentTile = (indexToCheck + boardSize - 1);
-        if((adjacentTile > maxIndex) && (indexToCheck % boardSize != 0)){
+        if((adjacentTile < maxIndex) && (indexToCheck % boardSize != 0)){
             CountNumberOfSandO((GameTile)playArea.getComponent(adjacentTile));
         }
 
@@ -100,14 +109,6 @@ public class ComputerPlayer extends Player{
         if((adjacentTile >= 0) && (indexToCheck % boardSize != 0)){
             CountNumberOfSandO((GameTile)playArea.getComponent(adjacentTile));
         }
-
-        try{
-
-            TimeUnit.SECONDS.sleep(randNum.nextInt(3)); //Hopefully will have the comp wait a couple of seconds before returning its decision.
-        }
-        catch(InterruptedException e){
-            System.out.println("Sleep was interrupted");
-        };
 
         if(numberOfS > numberOfO){                  //If there are more adjacent S, return O
             return 'O';
@@ -132,6 +133,7 @@ public class ComputerPlayer extends Player{
             numberOfO++;
         }
     }
+
 
     //I'm planning to have the CPU player wait 1-3 seconds before making its move to make
     //it feel more natural and less like a random selection.

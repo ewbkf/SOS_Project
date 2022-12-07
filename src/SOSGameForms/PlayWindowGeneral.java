@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 public class PlayWindowGeneral extends PlayWindow{
 
-    Color generalGameColor = new Color(255, 0, 255);
+    Color generalGameColor = new Color(255, 255, 255);
 
     public PlayWindowGeneral(int boardSize, int pMode) throws HeadlessException {
         super(boardSize, pMode);
@@ -39,14 +39,14 @@ public class PlayWindowGeneral extends PlayWindow{
     }
 
     @Override
-    protected void checkForWin(int P1, int P2){
+    protected void checkForWin(){
         //In a general game the game will continue until all tiles are played.
         if(tilesRemaining < 1) {
-            if (P1 > P2) {
+            if (playerOne.score > playerTwo.score) {
                 //TODO: P1 is victorious
                 PlayerOneWins();
                 GameOver();
-            } else if (P2 > P1) {
+            } else if (playerTwo.score > playerOne.score) {
                 //TODO: P2 is victorious
                 PlayerTwoWins();
                 GameOver();

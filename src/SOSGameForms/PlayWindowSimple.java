@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 public class PlayWindowSimple extends PlayWindow{
 
-    Color simpleGameColor = new Color(0, 255, 255, 255);
+    Color simpleGameColor = new Color(68, 68, 68, 255);
 
     public PlayWindowSimple(int boardSize, int pMode) throws HeadlessException {
         super(boardSize, pMode);
@@ -15,10 +15,10 @@ public class PlayWindowSimple extends PlayWindow{
         scorePanelP2.setBackground(simpleGameColor);
         footerPanel.setBackground(simpleGameColor);
         footerButtonPanel.setBackground(simpleGameColor);
-        P1ScoreText.setVisible(false);
-        P2ScoreText.setVisible(false);
-        PLayer1ScoreText.setVisible(false);
-        Player2ScoreText.setVisible(false);
+        leftScoreText.setVisible(false);
+        rightScoreText.setVisible(false);
+        leftScoreLabel.setVisible(false);
+        rightScoreLabel.setVisible(false);
 
         replayButton.addActionListener(new ActionListener() {
             @Override
@@ -43,14 +43,14 @@ public class PlayWindowSimple extends PlayWindow{
     }
 
     @Override
-    protected void checkForWin(int P1, int P2){
+    protected void checkForWin(){
         //In a simple game the game will end as soon as one player scores a point.
-        if (P1 > 0){
+        if (playerOne.score > 0){
             //TODO: P1 is victorious
             PlayerOneWins();
             GameOver();
         }
-        else if (P2 > 0){
+        else if (playerTwo.score > 0){
             //TODO: P2 is victorious
             PlayerTwoWins();
             GameOver();

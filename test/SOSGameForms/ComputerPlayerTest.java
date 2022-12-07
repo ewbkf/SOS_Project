@@ -1,5 +1,4 @@
 package SOSGameForms;
-
 import org.junit.jupiter.api.Test;
 
 class ComputerPlayerTest {
