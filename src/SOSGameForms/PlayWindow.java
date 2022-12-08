@@ -2,6 +2,8 @@ package SOSGameForms;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -44,7 +46,7 @@ public class PlayWindow extends JFrame {
     protected JButton replayButton;
     protected JButton newGameButton;
     protected JButton quitButton;
-    protected JButton STARTGAMEButton;
+    protected JButton startGameButton;
 
 
     //RADIO BUTTONS
@@ -65,12 +67,13 @@ public class PlayWindow extends JFrame {
     protected char typeToPlayComp;
     protected char typeToPlayHuman;
     protected int boardSize;
-    protected boolean isItPlayerOnesTurn = false; //is it player ones turn? if not, its player two/ the computers turn.
+    protected boolean isItPlayerOnesTurn = false; //is it player ones turn? if not, its player two's turn.
     protected boolean gameOver = false;
 
 
     //MISC
     protected TileLocation lastTilePlayed = new TileLocation();
+    protected FileOutput gameRecord;
     protected final Color redTeamColor = new Color(225, 112,109);
     protected final Color blueTeamColor = new Color(112,133,225);
     protected final Color offTurnColor = new Color(150,150,150);
@@ -85,6 +88,7 @@ public class PlayWindow extends JFrame {
         ImageIcon frameIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("Resources/SOS_windowIcon.png")));
         this.setIconImage(frameIcon.getImage());
         BuildUIElementLists();
+        gameRecord = new FileOutput();
         NextPlayer();
         boardSize = size;
         tilesRemaining = (size * size);
@@ -97,7 +101,7 @@ public class PlayWindow extends JFrame {
         Player2WinsText.setVisible(false);
         CPU1WinsText.setVisible(false);
         CPU2WinsText.setVisible(false);
-        STARTGAMEButton.setVisible(false);
+        startGameButton.setVisible(false);
         leftCompThinkingIcon.setVisible(false);
         rightCompThinkingIcon.setVisible(false);
         newGameButton.setVisible(false);
@@ -130,7 +134,7 @@ public class PlayWindow extends JFrame {
             case 3 -> {
                 playerOne = new ComputerPlayer(boardSize);
                 playerTwo = new ComputerPlayer(boardSize);
-                STARTGAMEButton.setVisible(true);
+                startGameButton.setVisible(true);
             }
             default -> {
                 System.out.println("ERROR: No player type selected");
@@ -138,6 +142,12 @@ public class PlayWindow extends JFrame {
             }
         }
 
+        startGameButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MakeMove((GameTile)startGameButton);
+            }
+        });
     }
 
     public void MakeMove(GameTile button){
@@ -169,6 +179,7 @@ public class PlayWindow extends JFrame {
                 while(tilesRemaining != 0){
                     ComputerPlayerMakesMove();
                 }
+                gameOver = true;
             }
         }
         checkForWin();
