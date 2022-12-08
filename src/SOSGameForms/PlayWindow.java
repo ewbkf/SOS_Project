@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class PlayWindow extends JFrame {
@@ -31,10 +33,13 @@ public class PlayWindow extends JFrame {
     protected JLabel Player2WinsText;
     protected JLabel CPU1WinsText;
     protected JLabel CPU2WinsText;
-    protected JLabel rightComp;
-    protected JLabel leftComp;
     protected JLabel leftPlayerLabel;
     protected JLabel rightPlayerLabel;
+    protected JLabel rightComp;
+    protected JLabel leftComp;
+    protected JLabel rightCompThinking;
+    protected JLabel leftCompThinking;
+    protected JLabel itsADrawText;
 
 
     //BUTTONS:
@@ -51,6 +56,7 @@ public class PlayWindow extends JFrame {
     protected JRadioButton rightRadioButtonO;
 
 
+
     //PLAYERS
     protected Player playerOne;
     protected Player playerTwo;
@@ -65,6 +71,9 @@ public class PlayWindow extends JFrame {
     protected boolean isItPlayerOnesTurn = false; //is it player ones turn? if not, its player two/ the computers turn.
     protected boolean gameOver = false;
 
+    protected List<JComponent> UIElementsMain  = new ArrayList<>();
+    protected List<JComponent> UIElementsLeft  = new ArrayList<>();
+    protected List<JComponent> UIElementsRight = new ArrayList<>();
 
     //MISC
     protected TileLocation lastTilePlayed = new TileLocation();
@@ -72,21 +81,15 @@ public class PlayWindow extends JFrame {
     protected final Color blueTeamColor = new Color(112,133,225);
     protected final Color offTurnColor = new Color(150,150,150);
 
-    //This one random action listener that will eventually help with the computer players.
-    ActionListener foo = new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            ComputerPlayerMakesMove();
-        }
-    };
 
-    protected Timer computerMoveTimer = new Timer(1, foo);
     public PlayWindow(int size, int pMode) throws HeadlessException {
         ImageIcon frameIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("Resources/SOS_windowIcon.png")));
         this.setIconImage(frameIcon.getImage());
+        BuildUIElementLists();
         NextPlayer();
         boardSize = size;
         tilesRemaining = (size * size);
+
         titleSOS.setVisible(true);
         gameOverLabel.setVisible(false);
         replayButton.setVisible(false);
@@ -96,13 +99,16 @@ public class PlayWindow extends JFrame {
         CPU1WinsText.setVisible(false);
         CPU2WinsText.setVisible(false);
         STARTGAMEButton.setVisible(false);
+        leftCompThinking.setVisible(false);
+        rightCompThinking.setVisible(false);
+        newGameButton.setVisible(false);
+        itsADrawText.setVisible(false);
 
         playArea = new JPanel();
         playArea.setLayout(new GridLayout(size, size, 0, 0));
         playArea.setMaximumSize(new Dimension(64,64));
         mainPanel.add(playArea);
 
-        //frame = new JFrame("PlayWindow");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
         this.pack();
@@ -132,19 +138,7 @@ public class PlayWindow extends JFrame {
                 System.exit(2);
             }
         }
-        STARTGAMEButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                STARTGAMEButton.setVisible(false);
-                //If there are two computer players, this while loop will start when the game begins and run until there
-                //  are no more tiles to be played.
-                while(tilesRemaining > 0) {
-                    computerMoveTimer.start();
-                    foo.actionPerformed(e);
-                }
-                computerMoveTimer.stop();
-            }
-        });
+
     }
 
     public void MakeMove(GameTile button){
@@ -173,8 +167,9 @@ public class PlayWindow extends JFrame {
             }
             //If both players are robots:
             else if (playerOne.isRobot() && playerTwo.isRobot()){
-                //Computer vs. Computer
-                //Nothing should really happen here. The computers should be playing automatically.
+                while(tilesRemaining != 0){
+                    ComputerPlayerMakesMove();
+                }
             }
         }
         checkForWin();
@@ -242,7 +237,6 @@ public class PlayWindow extends JFrame {
     }
 
     public void ComputerOneMakeMove(){
-
         tileToPlayComp = 0;
         typeToPlayComp = ' ';
         tileToPlayComp = ((ComputerPlayer)playerOne).FindNextTileToPlay(playArea);
@@ -310,12 +304,7 @@ public class PlayWindow extends JFrame {
         for (int i = 1; i < boardSize + 1; i++){
             for (int j = 1; j < boardSize + 1; j++){
                 GameTile button = new GameTile(new TileLocation(j, i), new TileIcon().getBLANK());
-                button.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        MakeMove(button);
-                    }
-                });
+                button.addActionListener(e -> MakeMove(button));
                 area.add(button);
             }
         }
@@ -429,10 +418,7 @@ public class PlayWindow extends JFrame {
             NextPlayer();
         }
     }
-    public void setP1RadioButtonS(boolean status) {leftRadioButtonS.setSelected(status);}
-    public void setP1RadioButtonO(boolean status) {leftRadioButtonO.setSelected(status);}
-    public void setP2RadioButtonS(boolean status) {rightRadioButtonS.setSelected(status);}
-    public void setP2RadioButtonO(boolean status) {rightRadioButtonO.setSelected(status);}
+
     public boolean AwardSOS(int iP, int i1, int i2, boolean isS){
         Icon SIcon;
         Icon OIcon;
@@ -485,16 +471,30 @@ public class PlayWindow extends JFrame {
         }
     }
 
-    protected void GameOver(){
-        //TODO: Set game over behavior
-        gameOverLabel.setVisible(true);
-        gameOver = true;
-        replayButton.setVisible(true);
-        quitButton.setVisible(true);
-        this.pack();
+    private void BuildUIElementLists(){
+        //Main list of all UI Elements
+        UIElementsMain.add(titlePanel);
+        UIElementsMain.add(scorePanelP1);
+        UIElementsMain.add(scorePanelP2);
+        UIElementsMain.add(footerButtonPanel);
+        UIElementsMain.add(footerPanel);
+        UIElementsMain.add(rightPanel);
+        UIElementsMain.add(rightRadioButtonO);
+        UIElementsMain.add(rightRadioButtonS);
+        UIElementsMain.add(leftPanel);
+        UIElementsMain.add(leftRadioButtonO);
+        UIElementsMain.add(leftRadioButtonS);
+
+        //List of Right Elements
+        //UIElementsRight.add();
+
+        //List of Left Elements
+
     }
 
-    protected void checkForWin(){
-        //Overridden in child class
-    }
+    protected void checkForWin(){/*Overridden in child class*/}
+    public void setP1RadioButtonS(boolean status) {leftRadioButtonS.setSelected(status);}
+    public void setP1RadioButtonO(boolean status) {leftRadioButtonO.setSelected(status);}
+    public void setP2RadioButtonS(boolean status) {rightRadioButtonS.setSelected(status);}
+    public void setP2RadioButtonO(boolean status) {rightRadioButtonO.setSelected(status);}
 }

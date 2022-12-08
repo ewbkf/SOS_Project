@@ -12,4 +12,11 @@ public class Player {
     public boolean isRobot(){
         return isBot;
     }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+    public int getScore() {
+        return score;
+    }
 }

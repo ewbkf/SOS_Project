@@ -1,5 +1,8 @@
 package SOSGameForms;
 
+import com.sun.management.GarbageCollectionNotificationInfo;
+
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,14 +22,14 @@ public class PlayWindowGeneral extends PlayWindow{
         replayButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                PlayWindowGeneral newGame = new PlayWindowGeneral(boardSize, 0);
+                new PlayWindowGeneral(boardSize, pMode);
                 PlayWindowGeneral.this.dispose();
             }
         });
         newGameButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ConfigurationWindow newGame = new ConfigurationWindow();
+                new ConfigurationWindow();
                 PlayWindowGeneral.this.dispose();
             }
         });
@@ -41,49 +44,45 @@ public class PlayWindowGeneral extends PlayWindow{
     @Override
     protected void checkForWin(){
         //In a general game the game will continue until all tiles are played.
-        if(tilesRemaining < 1) {
+        if(tilesRemaining == 0) {
             if (playerOne.score > playerTwo.score) {
                 //TODO: P1 is victorious
                 PlayerOneWins();
-                GameOver();
             } else if (playerTwo.score > playerOne.score) {
                 //TODO: P2 is victorious
                 PlayerTwoWins();
-                GameOver();
             } else {
                 //TODO: Its a Draw
+                SetColorsToWinningPlayer(Color.DARK_GRAY);
+                itsADrawText.setVisible(true);
                 GameOver();
             }
         }
     }
 
-    @Override
     protected void GameOver(){
         //TODO: Set game over behavior
         gameOverLabel.setVisible(true);
         gameOver = true;
         replayButton.setVisible(true);
+        newGameButton.setVisible(true);
         quitButton.setVisible(true);
         this.pack();
     }
 
     protected void PlayerOneWins(){
-        titlePanel.setBackground(redTeamColor);
-        scorePanelP1.setBackground(redTeamColor);
-        scorePanelP2.setBackground(redTeamColor);
-        footerPanel.setBackground(redTeamColor);
-        footerButtonPanel.setBackground(redTeamColor);
+        SetColorsToWinningPlayer(redTeamColor);
         Player1WinsText.setVisible(true);
-        //TODO: Player one wins
+        GameOver();
     }
 
     protected void PlayerTwoWins(){
-        titlePanel.setBackground(blueTeamColor);
-        scorePanelP1.setBackground(blueTeamColor);
-        scorePanelP2.setBackground(blueTeamColor);
-        footerPanel.setBackground(blueTeamColor);
-        footerButtonPanel.setBackground(blueTeamColor);
+        SetColorsToWinningPlayer(blueTeamColor);
         Player2WinsText.setVisible(true);
-        //TODO: Player two wins
+        GameOver();
+    }
+
+    private void SetColorsToWinningPlayer(Color winingColor){
+        for (JComponent components : UIElementsMain) components.setBackground(winingColor);
     }
 }
