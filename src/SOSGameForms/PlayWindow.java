@@ -2,8 +2,6 @@ package SOSGameForms;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -16,30 +14,30 @@ public class PlayWindow extends JFrame {
     protected JPanel rightPanel;
     protected JPanel titlePanel;
     protected JPanel footerPanel;
-    protected JPanel scorePanelP1;
-    protected JPanel scorePanelP2;
+    protected JPanel leftScorePanel;
+    protected JPanel rightScorePanel;
     protected JPanel footerButtonPanel;
-    protected JPanel playArea;
+    protected JPanel playAreaPanel;
 
 
     //LABELS
-    protected JLabel leftScoreText;
-    protected JLabel rightScoreText;
-    protected JLabel titleSOS;
-    protected JLabel gameOverLabel;
-    protected JLabel leftScoreLabel;
-    protected JLabel rightScoreLabel;
+    protected JLabel titleSOSIcon;
     protected JLabel Player1WinsText;
     protected JLabel Player2WinsText;
     protected JLabel CPU1WinsText;
     protected JLabel CPU2WinsText;
+    protected JLabel itsADrawText;
+    protected JLabel gameOverText;
     protected JLabel leftPlayerLabel;
     protected JLabel rightPlayerLabel;
-    protected JLabel rightComp;
-    protected JLabel leftComp;
-    protected JLabel rightCompThinking;
-    protected JLabel leftCompThinking;
-    protected JLabel itsADrawText;
+    protected JLabel leftScoreText;
+    protected JLabel leftScoreLabel;
+    protected JLabel rightScoreText;
+    protected JLabel rightScoreLabel;
+    protected JLabel rightCompIcon;
+    protected JLabel leftCompIcon;
+    protected JLabel rightCompThinkingIcon;
+    protected JLabel leftCompThinkingIcon;
 
 
     //BUTTONS:
@@ -56,7 +54,6 @@ public class PlayWindow extends JFrame {
     protected JRadioButton rightRadioButtonO;
 
 
-
     //PLAYERS
     protected Player playerOne;
     protected Player playerTwo;
@@ -71,9 +68,6 @@ public class PlayWindow extends JFrame {
     protected boolean isItPlayerOnesTurn = false; //is it player ones turn? if not, its player two/ the computers turn.
     protected boolean gameOver = false;
 
-    protected List<JComponent> UIElementsMain  = new ArrayList<>();
-    protected List<JComponent> UIElementsLeft  = new ArrayList<>();
-    protected List<JComponent> UIElementsRight = new ArrayList<>();
 
     //MISC
     protected TileLocation lastTilePlayed = new TileLocation();
@@ -81,6 +75,11 @@ public class PlayWindow extends JFrame {
     protected final Color blueTeamColor = new Color(112,133,225);
     protected final Color offTurnColor = new Color(150,150,150);
 
+
+    //UI Lists - Names should be self-explanatory.
+    protected List<JComponent> UIElementsMain  = new ArrayList<>();
+    protected List<JComponent> UIElementsLeft  = new ArrayList<>();
+    protected List<JComponent> UIElementsRight = new ArrayList<>();
 
     public PlayWindow(int size, int pMode) throws HeadlessException {
         ImageIcon frameIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("Resources/SOS_windowIcon.png")));
@@ -90,8 +89,8 @@ public class PlayWindow extends JFrame {
         boardSize = size;
         tilesRemaining = (size * size);
 
-        titleSOS.setVisible(true);
-        gameOverLabel.setVisible(false);
+        titleSOSIcon.setVisible(true);
+        gameOverText.setVisible(false);
         replayButton.setVisible(false);
         quitButton.setVisible(false);
         Player1WinsText.setVisible(false);
@@ -99,15 +98,15 @@ public class PlayWindow extends JFrame {
         CPU1WinsText.setVisible(false);
         CPU2WinsText.setVisible(false);
         STARTGAMEButton.setVisible(false);
-        leftCompThinking.setVisible(false);
-        rightCompThinking.setVisible(false);
+        leftCompThinkingIcon.setVisible(false);
+        rightCompThinkingIcon.setVisible(false);
         newGameButton.setVisible(false);
         itsADrawText.setVisible(false);
 
-        playArea = new JPanel();
-        playArea.setLayout(new GridLayout(size, size, 0, 0));
-        playArea.setMaximumSize(new Dimension(64,64));
-        mainPanel.add(playArea);
+        playAreaPanel = new JPanel();
+        playAreaPanel.setLayout(new GridLayout(size, size, 0, 0));
+        playAreaPanel.setMaximumSize(new Dimension(64,64));
+        mainPanel.add(playAreaPanel);
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
@@ -115,7 +114,7 @@ public class PlayWindow extends JFrame {
         this.setVisible(true);
         this.setLocationRelativeTo(null);
 
-        populateBoard(playArea, size);
+        populateBoard(playAreaPanel, size);
 
         this.pack();
 
@@ -239,42 +238,42 @@ public class PlayWindow extends JFrame {
     public void ComputerOneMakeMove(){
         tileToPlayComp = 0;
         typeToPlayComp = ' ';
-        tileToPlayComp = ((ComputerPlayer)playerOne).FindNextTileToPlay(playArea);
-        typeToPlayComp = ((ComputerPlayer)playerOne).DecideWhatToPlaceOnTile(playArea, tileToPlayComp);
+        tileToPlayComp = ((ComputerPlayer)playerOne).FindNextTileToPlay(playAreaPanel);
+        typeToPlayComp = ((ComputerPlayer)playerOne).DecideWhatToPlaceOnTile(playAreaPanel, tileToPlayComp);
 
-        ((GameTile)(playArea.getComponent(tileToPlayComp))).played();
-        ((GameTile)(playArea.getComponent(tileToPlayComp))).setState(typeToPlayComp);
+        ((GameTile)(playAreaPanel.getComponent(tileToPlayComp))).played();
+        ((GameTile)(playAreaPanel.getComponent(tileToPlayComp))).setState(typeToPlayComp);
 
         if(typeToPlayComp == 'S'){
-            ((GameTile)(playArea.getComponent(tileToPlayComp))).setIcon(new TileIcon().getWhiteS());
+            ((GameTile)(playAreaPanel.getComponent(tileToPlayComp))).setIcon(new TileIcon().getWhiteS());
         }
         else{
-            ((GameTile)(playArea.getComponent(tileToPlayComp))).setIcon(new TileIcon().getWhiteO());
+            ((GameTile)(playAreaPanel.getComponent(tileToPlayComp))).setIcon(new TileIcon().getWhiteO());
         }
 
-        this.lastTilePlayed = ((GameTile)(playArea.getComponent(tileToPlayComp))).getCoords();
-        checkForSOS(((GameTile)(playArea.getComponent(tileToPlayComp))).getCoords(), boardSize);
+        this.lastTilePlayed = ((GameTile)(playAreaPanel.getComponent(tileToPlayComp))).getCoords();
+        checkForSOS(((GameTile)(playAreaPanel.getComponent(tileToPlayComp))).getCoords(), boardSize);
         tilesRemaining--;
     }
 
     public void ComputerTwoMakeMove(){
         tileToPlayComp = 0;
         typeToPlayComp = ' ';
-        tileToPlayComp = ((ComputerPlayer)playerTwo).FindNextTileToPlay(playArea);
-        typeToPlayComp = ((ComputerPlayer)playerTwo).DecideWhatToPlaceOnTile(playArea, tileToPlayComp);
+        tileToPlayComp = ((ComputerPlayer)playerTwo).FindNextTileToPlay(playAreaPanel);
+        typeToPlayComp = ((ComputerPlayer)playerTwo).DecideWhatToPlaceOnTile(playAreaPanel, tileToPlayComp);
 
-        ((GameTile)(playArea.getComponent(tileToPlayComp))).played();
-        ((GameTile)(playArea.getComponent(tileToPlayComp))).setState(typeToPlayComp);
+        ((GameTile)(playAreaPanel.getComponent(tileToPlayComp))).played();
+        ((GameTile)(playAreaPanel.getComponent(tileToPlayComp))).setState(typeToPlayComp);
 
         if(typeToPlayComp == 'S'){
-            ((GameTile)(playArea.getComponent(tileToPlayComp))).setIcon(new TileIcon().getWhiteS());
+            ((GameTile)(playAreaPanel.getComponent(tileToPlayComp))).setIcon(new TileIcon().getWhiteS());
         }
         else{
-            ((GameTile)(playArea.getComponent(tileToPlayComp))).setIcon(new TileIcon().getWhiteO());
+            ((GameTile)(playAreaPanel.getComponent(tileToPlayComp))).setIcon(new TileIcon().getWhiteO());
         }
 
-        this.lastTilePlayed = ((GameTile)(playArea.getComponent(tileToPlayComp))).getCoords();
-        checkForSOS(((GameTile)(playArea.getComponent(tileToPlayComp))).getCoords(), boardSize);
+        this.lastTilePlayed = ((GameTile)(playAreaPanel.getComponent(tileToPlayComp))).getCoords();
+        checkForSOS(((GameTile)(playAreaPanel.getComponent(tileToPlayComp))).getCoords(), boardSize);
         tilesRemaining--;
     }
 
@@ -314,7 +313,7 @@ public class PlayWindow extends JFrame {
         //converting tile coordinates to an index so that we can access it in the JPanel GridLayout.
         int playedTileIndex = (boardSize * (last.getyCoord() - 1) + (last.getxCoord() - 1)); //Index of the last tile played.
         //Grabbing a copy of the last tile played.
-        GameTile lastTilePlayed = (GameTile)playArea.getComponent(playedTileIndex);
+        GameTile lastTilePlayed = (GameTile) playAreaPanel.getComponent(playedTileIndex);
 
         int firstTileIndex;
         int secondTileIndex;
@@ -424,8 +423,8 @@ public class PlayWindow extends JFrame {
         Icon OIcon;
         GameTile firstTileToBeTested;
         GameTile secondTileToBeTested;
-        firstTileToBeTested = (GameTile)playArea.getComponent(i1);
-        secondTileToBeTested = (GameTile)playArea.getComponent(i2);
+        firstTileToBeTested = (GameTile) playAreaPanel.getComponent(i1);
+        secondTileToBeTested = (GameTile) playAreaPanel.getComponent(i2);
 
         if(isItPlayerOnesTurn){
             SIcon = new TileIcon().getRedS();
@@ -437,9 +436,9 @@ public class PlayWindow extends JFrame {
         }
         if(isS) {
             if (firstTileToBeTested.getState() == 'O' && secondTileToBeTested.getState() == 'S') {
-                ((GameTile) playArea.getComponent(iP)).setIcon(SIcon);
-                ((GameTile) playArea.getComponent(i1)).setIcon(OIcon);
-                ((GameTile) playArea.getComponent(i2)).setIcon(SIcon);
+                ((GameTile) playAreaPanel.getComponent(iP)).setIcon(SIcon);
+                ((GameTile) playAreaPanel.getComponent(i1)).setIcon(OIcon);
+                ((GameTile) playAreaPanel.getComponent(i2)).setIcon(SIcon);
                 PointScored();
                 return true;
             } else {
@@ -448,9 +447,9 @@ public class PlayWindow extends JFrame {
         }
         else{
             if (firstTileToBeTested.getState() == 'S' && secondTileToBeTested.getState() == 'S') {
-                ((GameTile) playArea.getComponent(i1)).setIcon(SIcon);
-                ((GameTile) playArea.getComponent(iP)).setIcon(OIcon);
-                ((GameTile) playArea.getComponent(i2)).setIcon(SIcon);
+                ((GameTile) playAreaPanel.getComponent(i1)).setIcon(SIcon);
+                ((GameTile) playAreaPanel.getComponent(iP)).setIcon(OIcon);
+                ((GameTile) playAreaPanel.getComponent(i2)).setIcon(SIcon);
                 PointScored();
                 return true;
             } else {
@@ -474,8 +473,8 @@ public class PlayWindow extends JFrame {
     private void BuildUIElementLists(){
         //Main list of all UI Elements
         UIElementsMain.add(titlePanel);
-        UIElementsMain.add(scorePanelP1);
-        UIElementsMain.add(scorePanelP2);
+        UIElementsMain.add(leftScorePanel);
+        UIElementsMain.add(rightScorePanel);
         UIElementsMain.add(footerButtonPanel);
         UIElementsMain.add(footerPanel);
         UIElementsMain.add(rightPanel);

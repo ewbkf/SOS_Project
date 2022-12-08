@@ -12,8 +12,8 @@ public class PlayWindowSimple extends PlayWindow{
     public PlayWindowSimple(int boardSize, int pMode) throws HeadlessException {
         super(boardSize, pMode);
         titlePanel.setBackground(simpleGameColor);
-        scorePanelP1.setBackground(simpleGameColor);
-        scorePanelP2.setBackground(simpleGameColor);
+        leftScorePanel.setBackground(simpleGameColor);
+        rightScorePanel.setBackground(simpleGameColor);
         footerPanel.setBackground(simpleGameColor);
         footerButtonPanel.setBackground(simpleGameColor);
         leftScoreText.setVisible(false);
@@ -64,7 +64,7 @@ public class PlayWindowSimple extends PlayWindow{
 
     protected void GameOver(){
         //TODO: Set game over behavior
-        gameOverLabel.setVisible(true);
+        gameOverText.setVisible(true);
         gameOver = true;
         replayButton.setVisible(true);
         newGameButton.setVisible(true);

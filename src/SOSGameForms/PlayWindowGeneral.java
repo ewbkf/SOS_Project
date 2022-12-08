@@ -1,7 +1,5 @@
 package SOSGameForms;
 
-import com.sun.management.GarbageCollectionNotificationInfo;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -14,8 +12,8 @@ public class PlayWindowGeneral extends PlayWindow{
     public PlayWindowGeneral(int boardSize, int pMode) throws HeadlessException {
         super(boardSize, pMode);
         titlePanel.setBackground(generalGameColor);
-        scorePanelP1.setBackground(generalGameColor);
-        scorePanelP2.setBackground(generalGameColor);
+        leftScorePanel.setBackground(generalGameColor);
+        rightScorePanel.setBackground(generalGameColor);
         footerPanel.setBackground(generalGameColor);
         footerButtonPanel.setBackground(generalGameColor);
 
@@ -62,7 +60,7 @@ public class PlayWindowGeneral extends PlayWindow{
 
     protected void GameOver(){
         //TODO: Set game over behavior
-        gameOverLabel.setVisible(true);
+        gameOverText.setVisible(true);
         gameOver = true;
         replayButton.setVisible(true);
         newGameButton.setVisible(true);
