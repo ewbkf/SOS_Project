@@ -1,0 +1,162 @@
+New game started: 
+Game Mode: General Game 
+Board Size: 10
+ 
+Red Computer Played a O at 6, 9
+Blue Computer Played a S at 2, 0
+Red Computer Played a O at 0, 1
+Blue Computer Played a S at 5, 1
+Red Computer Played a S at 9, 1
+Blue Computer Played a S at 3, 2
+Red Computer Played a O at 0, 4
+Blue Computer Played a S at 5, 3
+Red Computer Played a O at 0, 7
+Blue Computer Played a S at 4, 9
+Red Computer Played a O at 8, 0
+Blue Computer Played a O at 8, 8
+Red Computer Played a S at 7, 1
+Blue Computer Played a O at 7, 3
+Red Computer Played a S at 9, 6
+Blue Computer Played a O at 9, 5
+Red Computer Played a O at 3, 3
+Blue Computer Played a O at 5, 0
+Red Computer Played a S at 0, 3
+Blue Computer Played a O at 1, 1
+Red Computer Played a O at 7, 2
+Blue Computer Played a S at 7, 7
+Red Computer Played a S at 1, 0
+Blue Computer Played a S at 8, 3
+Red Computer Played a S at 8, 1
+Blue Computer Played a S at 1, 8
+Red Computer Played a S at 3, 4
+Red Team Scored a Point!
+Blue Computer Played a O at 8, 2
+Blue Team Scored a Point!
+Red Computer Played a O at 9, 2
+Blue Computer Played a S at 2, 2
+Red Computer Played a O at 1, 9
+Blue Computer Played a S at 9, 3
+Blue Team Scored a Point!
+Blue Team Scored a Point!
+Blue Computer Played a O at 1, 4
+Red Computer Played a O at 6, 2
+Red Team Scored a Point!
+Red Computer Played a O at 7, 4
+Blue Computer Played a O at 2, 3
+Red Computer Played a O at 2, 7
+Blue Computer Played a S at 2, 6
+Red Computer Played a S at 3, 8
+Blue Computer Played a O at 9, 4
+Red Computer Played a S at 1, 3
+Blue Computer Played a S at 5, 7
+Red Computer Played a S at 0, 8
+Blue Computer Played a O at 5, 4
+Red Computer Played a O at 4, 7
+Blue Computer Played a S at 5, 9
+Red Computer Played a O at 2, 9
+Blue Computer Played a S at 7, 8
+Red Computer Played a O at 6, 6
+Blue Computer Played a O at 6, 8
+Blue Team Scored a Point!
+Blue Computer Played a O at 4, 3
+Red Computer Played a S at 6, 1
+Red Team Scored a Point!
+Blue Computer Played a S at 0, 0
+Blue Team Scored a Point!
+Red Computer Played a O at 3, 5
+Blue Computer Played a O at 4, 0
+Red Computer Played a S at 7, 9
+Red Team Scored a Point!
+Red Team Scored a Point!
+Red Computer Played a S at 8, 4
+Blue Computer Played a O at 3, 0
+Red Computer Played a S at 2, 8
+Red Team Scored a Point!
+Blue Computer Played a S at 5, 8
+Blue Team Scored a Point!
+Red Computer Played a S at 8, 5
+Blue Computer Played a O at 0, 9
+Red Computer Played a O at 8, 9
+Blue Computer Played a S at 0, 5
+Blue Team Scored a Point!
+Red Computer Played a S at 0, 6
+Red Team Scored a Point!
+Red Computer Played a O at 4, 8
+Blue Computer Played a O at 8, 6
+Red Computer Played a S at 3, 6
+Red Team Scored a Point!
+Red Team Scored a Point!
+Blue Computer Played a S at 9, 9
+Blue Team Scored a Point!
+Blue Team Scored a Point!
+Blue Computer Played a O at 4, 5
+Red Computer Played a O at 8, 7
+Red Team Scored a Point!
+Red Computer Played a S at 4, 6
+Blue Computer Played a O at 1, 6
+Blue Team Scored a Point!
+Red Computer Played a S at 9, 8
+Red Team Scored a Point!
+Blue Computer Played a S at 4, 1
+Red Computer Played a S at 1, 2
+Red Team Scored a Point!
+Red Team Scored a Point!
+Blue Computer Played a O at 3, 1
+Red Computer Played a S at 1, 5
+Red Team Scored a Point!
+Blue Computer Played a S at 4, 4
+Blue Team Scored a Point!
+Blue Team Scored a Point!
+Blue Team Scored a Point!
+Blue Computer Played a O at 2, 5
+Red Computer Played a S at 5, 5
+Red Team Scored a Point!
+Red Team Scored a Point!
+Blue Computer Played a O at 9, 0
+Red Computer Played a S at 6, 3
+Red Team Scored a Point!
+Red Team Scored a Point!
+Red Team Scored a Point!
+Red Team Scored a Point!
+Blue Computer Played a O at 2, 1
+Blue Team Scored a Point!
+Blue Team Scored a Point!
+Red Computer Played a S at 2, 4
+Red Team Scored a Point!
+Red Team Scored a Point!
+Red Team Scored a Point!
+Blue Computer Played a S at 9, 7
+Blue Team Scored a Point!
+Blue Team Scored a Point!
+Red Computer Played a O at 5, 2
+Red Team Scored a Point!
+Red Computer Played a O at 5, 6
+Red Team Scored a Point!
+Red Computer Played a S at 7, 6
+Red Team Scored a Point!
+Red Team Scored a Point!
+Blue Computer Played a O at 3, 7
+Blue Team Scored a Point!
+Blue Team Scored a Point!
+Blue Computer Played a O at 6, 0
+Red Computer Played a O at 6, 4
+Blue Computer Played a O at 3, 9
+Red Computer Played a S at 7, 5
+Red Team Scored a Point!
+Red Team Scored a Point!
+Red Team Scored a Point!
+Red Computer Played a S at 4, 2
+Red Team Scored a Point!
+Red Team Scored a Point!
+Red Team Scored a Point!
+Red Computer Played a O at 0, 2
+Blue Computer Played a O at 7, 0
+Red Computer Played a S at 6, 5
+Red Team Scored a Point!
+Red Team Scored a Point!
+Blue Computer Played a O at 1, 7
+Blue Team Scored a Point!
+Blue Team Scored a Point!
+Blue Computer Played a O at 6, 7
+Blue Team Scored a Point!
+Blue Team Scored a Point!

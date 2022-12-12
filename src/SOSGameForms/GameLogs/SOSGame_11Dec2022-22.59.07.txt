@@ -1,0 +1,8 @@
+New game started: 
+Game Mode: Simple Game 
+Board Size: 15
+ 
+Red Player played a S at 2, 7
+Blue Player played a O at 3, 7
+Red Player played a S at 4, 7
+Red Team Scored a Point!

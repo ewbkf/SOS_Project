@@ -5,22 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64006a94-056b-4567-b3be-938e080d0ce0" name="Changes" comment="Refactored more variables for more readable and standardized variable names.">
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-19.30.42.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-19.37.21.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-19.44.44.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-19.45.38.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-19.50.21.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-19.51.15.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-20.24.15.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-22.59.07.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-22.59.28.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-23.00.10.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-23.00.30.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-23.01.00.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-23.01.36.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-23.01.56.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-23.02.30.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-23.02.53.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-23.09.47.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-23.10.44.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-23.11.56.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/FileOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/FileOutput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-18.59.52.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-19.02.19.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-19.05.54.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-19.08.57.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowGeneral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowGeneral.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowSimple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowSimple.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,7 +279,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670807375442</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Refactored more variables for more readable and standardized variable names.">
+      <created>1670820737441</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1670820737441</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

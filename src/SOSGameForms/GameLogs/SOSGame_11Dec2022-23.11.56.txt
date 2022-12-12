@@ -1,0 +1,19 @@
+New game started: 
+Game Mode: Simple Game 
+Board Size: 10
+ 
+Red Computer Played a O at 9, 3
+Blue Computer Played a O at 1, 3
+Red Computer Played a O at 9, 6
+Blue Computer Played a S at 0, 3
+Red Computer Played a S at 9, 4
+Blue Computer Played a O at 7, 7
+Red Computer Played a O at 8, 1
+Blue Computer Played a O at 5, 1
+Red Computer Played a S at 7, 6
+Blue Computer Played a S at 6, 1
+Red Computer Played a S at 5, 3
+Blue Computer Played a O at 5, 4
+Red Computer Played a O at 0, 2
+Blue Computer Played a S at 0, 1
+Blue Team Scored a Point!

@@ -160,7 +160,7 @@ public class PlayWindow extends JFrame {
                 if (isItPlayerOnesTurn && button.isPlayable()) {
                     PlayerOneMakeMove(button);
                     //After the Players move is made, the computer will get a turn.
-                    while (!isItPlayerOnesTurn) {
+                    while (!isItPlayerOnesTurn && !gameOver) {
                         ComputerTwoMakeMove();
                     }
                 }
@@ -168,7 +168,7 @@ public class PlayWindow extends JFrame {
             }
             //If both players are robots:
             else if (playerOne.isRobot() && playerTwo.isRobot()) {
-                while (tilesRemaining != 0) {
+                while (tilesRemaining != 0 && !gameOver) {
                     ComputerPlayerMakesMove();
                 }
                 gameOver = true;
@@ -259,6 +259,7 @@ public class PlayWindow extends JFrame {
 
         this.lastTilePlayed = ((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).getCoords();
         checkForSOS(((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).getCoords(), boardSize);
+        checkForWin();
         tilesRemaining--;
     }
 
@@ -284,6 +285,7 @@ public class PlayWindow extends JFrame {
 
         this.lastTilePlayed = ((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).getCoords();
         checkForSOS(((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).getCoords(), boardSize);
+        checkForWin();
         tilesRemaining--;
     }
 
