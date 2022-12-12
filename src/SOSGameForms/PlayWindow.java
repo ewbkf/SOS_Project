@@ -2,8 +2,6 @@ package SOSGameForms;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -142,12 +140,7 @@ public class PlayWindow extends JFrame {
             }
         }
 
-        startGameButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                MakeMove((GameTile)startGameButton);
-            }
-        });
+        startGameButton.addActionListener(e -> MakeMove(new GameTile(new TileLocation(),new ImageIcon())));
     }
 
     public void MakeMove(GameTile button){
@@ -482,23 +475,37 @@ public class PlayWindow extends JFrame {
     }
 
     private void BuildUIElementLists(){
+
         //Main list of all UI Elements
         UIElementsMain.add(titlePanel);
-        UIElementsMain.add(leftScorePanel);
-        UIElementsMain.add(rightScorePanel);
         UIElementsMain.add(footerButtonPanel);
         UIElementsMain.add(footerPanel);
         UIElementsMain.add(rightPanel);
         UIElementsMain.add(rightRadioButtonO);
         UIElementsMain.add(rightRadioButtonS);
+        UIElementsMain.add(rightScorePanel);
         UIElementsMain.add(leftPanel);
         UIElementsMain.add(leftRadioButtonO);
         UIElementsMain.add(leftRadioButtonS);
+        UIElementsMain.add(leftScorePanel);
 
         //List of Right Elements
-        //UIElementsRight.add();
+        UIElementsRight.add(rightScorePanel);
+        UIElementsRight.add(titlePanel);
+        UIElementsRight.add(rightPanel);
+        UIElementsRight.add(footerButtonPanel);
+        UIElementsRight.add(footerPanel);
+        UIElementsRight.add(rightRadioButtonO);
+        UIElementsRight.add(rightRadioButtonS);
 
         //List of Left Elements
+        UIElementsLeft.add(titlePanel);
+        UIElementsLeft.add(footerPanel);
+        UIElementsLeft.add(footerButtonPanel);
+        UIElementsLeft.add(rightPanel);
+        UIElementsLeft.add(rightScorePanel);
+        UIElementsLeft.add(leftRadioButtonO);
+        UIElementsLeft.add(leftRadioButtonS);
 
     }
 
