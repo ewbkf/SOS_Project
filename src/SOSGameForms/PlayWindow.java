@@ -77,6 +77,7 @@ public class PlayWindow extends JFrame {
     protected final Color offTurnColor = new Color(150,150,150);
 
 
+
     //UI Lists - Names should be self-explanatory.
     protected List<JComponent> UIElementsMain  = new ArrayList<>();
     protected List<JComponent> UIElementsLeft  = new ArrayList<>();

@@ -3,10 +3,11 @@ package SOSGameForms;
 import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 
 public class FileOutput {
     private File gameLog;
-    private FileWriter writer;
+
     private FileReader reader;
     private BufferedReader bufferedReader;
     private boolean fileCreatedSuccessfully;
@@ -17,7 +18,7 @@ public class FileOutput {
 
         try {
             gameLog = new File("src/SOSGameForms/GameLogs", fileName);
-            writer = new FileWriter("gameLogSOS.txt");
+
             reader = new FileReader("gameLogSOS.txt");
             bufferedReader = new BufferedReader(reader);
 
@@ -39,8 +40,10 @@ public class FileOutput {
     //Adds an entry to the gameLog, no need to include a newline character
     public void AddLineToGameLog(String line) {
         try {
-            writer.write(line + "\n");
-            writer.close();
+            FileWriter writer = new FileWriter("gameLogSOS.txt");
+            BufferedWriter bufferedWriter = new BufferedWriter(writer);
+            bufferedWriter.write(line + "\n");
+            bufferedWriter.flush();
             System.out.println("Successfully wrote to the file: " + line);
         } catch (IOException e) {
             System.out.println("An error occurred.");
