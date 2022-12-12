@@ -1,0 +1,6 @@
+New game started: 
+Game Mode: General Game 
+Board Size: 3
+ 
+Red Player played a S at 1, 1Blue Player played a O at 2, 1Red Player played a S at 1, 2Blue Player played a O at 2, 2Red Team Scored a Point!
+Red Player played a S at 3, 3

@@ -11,8 +11,7 @@ public class PlayWindowGeneral extends PlayWindow{
 
     public PlayWindowGeneral(int boardSize, int pMode) throws HeadlessException {
         super(boardSize, pMode);
-        gameRecord.AddLineToGameLog(new StringBuilder().append("New game started: Game Mode: General Game, Board Size: ").append(Integer.toString(boardSize)).toString());
-        gameRecord.AddLineToGameLog("Test");
+        gameRecord.AddLineToGameLog("New game started: \nGame Mode: General Game \nBoard Size: " + Integer.toString(boardSize).toString() + "\n \n");
         titlePanel.setBackground(generalGameColor);
         leftScorePanel.setBackground(generalGameColor);
         rightScorePanel.setBackground(generalGameColor);

@@ -72,15 +72,14 @@ public class PlayWindow extends JFrame {
     //MISC
     protected TileLocation lastTilePlayed = new TileLocation();
     protected FileOutput gameRecord;
-    protected final Color redTeamColor = new Color(225, 112,109);
-    protected final Color blueTeamColor = new Color(112,133,225);
-    protected final Color offTurnColor = new Color(150,150,150);
-
+    protected final Color redTeamColor = new Color(225, 112, 109);
+    protected final Color blueTeamColor = new Color(112, 133, 225);
+    protected final Color offTurnColor = new Color(150, 150, 150);
 
 
     //UI Lists - Names should be self-explanatory.
-    protected List<JComponent> UIElementsMain  = new ArrayList<>();
-    protected List<JComponent> UIElementsLeft  = new ArrayList<>();
+    protected List<JComponent> UIElementsMain = new ArrayList<>();
+    protected List<JComponent> UIElementsLeft = new ArrayList<>();
     protected List<JComponent> UIElementsRight = new ArrayList<>();
 
     public PlayWindow(int size, int pMode) throws HeadlessException {
@@ -108,7 +107,7 @@ public class PlayWindow extends JFrame {
 
         playAreaPanel = new JPanel();
         playAreaPanel.setLayout(new GridLayout(size, size, 0, 0));
-        playAreaPanel.setMaximumSize(new Dimension(64,64));
+        playAreaPanel.setMaximumSize(new Dimension(64, 64));
         mainPanel.add(playAreaPanel);
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -141,36 +140,35 @@ public class PlayWindow extends JFrame {
             }
         }
 
-        startGameButton.addActionListener(e -> MakeMove(new GameTile(new TileLocation(),new ImageIcon())));
+        startGameButton.addActionListener(e -> MakeMove(new GameTile(new TileLocation(), new ImageIcon())));
     }
 
-    public void MakeMove(GameTile button){
-        if(!gameOver){
+    public void MakeMove(GameTile button) {
+        if (!gameOver) {
             //Three cases:
             //If neither player is a robot:
-            if(!playerOne.isRobot() && !playerTwo.isRobot()){
+            if (!playerOne.isRobot() && !playerTwo.isRobot()) {
                 //Human vs. Human
-                if(isItPlayerOnesTurn){
+                if (isItPlayerOnesTurn && button.isPlayable()) {
                     PlayerOneMakeMove(button);
-                }
-                else{
+                } else if (button.isPlayable()) {
                     PlayerTwoMakeMove(button);
                 }
             }
             //If only one player is a robot:
-            else if (!playerOne.isRobot() && playerTwo.isRobot()){
-                if(isItPlayerOnesTurn){
+            else if (!playerOne.isRobot() && playerTwo.isRobot()) {
+                if (isItPlayerOnesTurn && button.isPlayable()) {
                     PlayerOneMakeMove(button);
                     //After the Players move is made, the computer will get a turn.
-                    while(!isItPlayerOnesTurn) {
+                    while (!isItPlayerOnesTurn) {
                         ComputerTwoMakeMove();
                     }
                 }
                 //If it is not the players turn, nothing will happen.
             }
             //If both players are robots:
-            else if (playerOne.isRobot() && playerTwo.isRobot()){
-                while(tilesRemaining != 0){
+            else if (playerOne.isRobot() && playerTwo.isRobot()) {
+                while (tilesRemaining != 0) {
                     ComputerPlayerMakesMove();
                 }
                 gameOver = true;
@@ -179,112 +177,119 @@ public class PlayWindow extends JFrame {
         checkForWin();
     }
 
-    public void PlayerOneMakeMove(GameTile button){
+    public void PlayerOneMakeMove(GameTile button) {
         typeToPlayHuman = ' ';
 
-        if(leftRadioButtonS.isSelected()){
+        if (leftRadioButtonS.isSelected()) {
             typeToPlayHuman = 'S';
-        }
-        else if(leftRadioButtonO.isSelected()){
+        } else if (leftRadioButtonO.isSelected()) {
             typeToPlayHuman = 'O';
         }
 
         button.played();
         button.setState(typeToPlayHuman);
 
-        if (typeToPlayHuman == 'S'){
+        if (typeToPlayHuman == 'S') {
             button.setIcon(new TileIcon().getWhiteS());
 
         }
-        if (typeToPlayHuman == 'O'){
+        if (typeToPlayHuman == 'O') {
             button.setIcon(new TileIcon().getWhiteO());
         }
 
+        gameRecord.AddLineToGameLog("Red Player played a " + typeToPlayHuman + " at " + button.getCoords().getxCoord() + ", " + button.getCoords().getyCoord() + "\n");
         checkForSOS(button.getCoords(), boardSize);
         this.lastTilePlayed = button.getCoords();
         tilesRemaining--;
     }
 
-    public void PlayerTwoMakeMove(GameTile button){
+    public void PlayerTwoMakeMove(GameTile button) {
         typeToPlayHuman = ' ';
 
-        if(rightRadioButtonS.isSelected()){
+        if (rightRadioButtonS.isSelected()) {
             typeToPlayHuman = 'S';
-        }
-        else if(rightRadioButtonO.isSelected()){
+        } else if (rightRadioButtonO.isSelected()) {
             typeToPlayHuman = 'O';
         }
 
         button.played();
         button.setState(typeToPlayHuman);
 
-        if (typeToPlayHuman == 'S'){
+        if (typeToPlayHuman == 'S') {
             button.setIcon(new TileIcon().getWhiteS());
 
         }
-        if (typeToPlayHuman == 'O'){
+        if (typeToPlayHuman == 'O') {
             button.setIcon(new TileIcon().getWhiteO());
         }
 
+        gameRecord.AddLineToGameLog("Blue Player played a " + typeToPlayHuman + " at " + button.getCoords().getxCoord() + ", " + button.getCoords().getyCoord() + "\n");
         checkForSOS(button.getCoords(), boardSize);
         this.lastTilePlayed = button.getCoords();
         tilesRemaining--;
     }
 
-    public void ComputerPlayerMakesMove(){
-        if(isItPlayerOnesTurn){
+    public void ComputerPlayerMakesMove() {
+        if (isItPlayerOnesTurn) {
             ComputerOneMakeMove();
-        }
-        else{
+        } else {
             ComputerTwoMakeMove();
         }
     }
 
-    public void ComputerOneMakeMove(){
+    public void ComputerOneMakeMove() {
         tileToPlayComp = 0;
         typeToPlayComp = ' ';
-        tileToPlayComp = ((ComputerPlayer)playerOne).FindNextTileToPlay(playAreaPanel);
-        typeToPlayComp = ((ComputerPlayer)playerOne).DecideWhatToPlaceOnTile(playAreaPanel, tileToPlayComp);
+        tileToPlayComp = ((ComputerPlayer) playerOne).FindNextTileToPlay(playAreaPanel);
+        typeToPlayComp = ((ComputerPlayer) playerOne).DecideWhatToPlaceOnTile(playAreaPanel, tileToPlayComp);
 
-        ((GameTile)(playAreaPanel.getComponent(tileToPlayComp))).played();
-        ((GameTile)(playAreaPanel.getComponent(tileToPlayComp))).setState(typeToPlayComp);
+        int tileToPlayCompX = tileToPlayComp % boardSize;
+        int tileToPlayCompY = tileToPlayComp / boardSize;
 
-        if(typeToPlayComp == 'S'){
-            ((GameTile)(playAreaPanel.getComponent(tileToPlayComp))).setIcon(new TileIcon().getWhiteS());
+        gameRecord.AddLineToGameLog("Red Computer Played a " + typeToPlayComp + " at " + Integer.toString(tileToPlayCompX) + ", " + Integer.toString(tileToPlayCompY) + "\n");
+
+        ((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).played();
+        ((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).setState(typeToPlayComp);
+
+        if (typeToPlayComp == 'S') {
+            ((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).setIcon(new TileIcon().getWhiteS());
+        } else {
+            ((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).setIcon(new TileIcon().getWhiteO());
         }
-        else{
-            ((GameTile)(playAreaPanel.getComponent(tileToPlayComp))).setIcon(new TileIcon().getWhiteO());
-        }
 
-        this.lastTilePlayed = ((GameTile)(playAreaPanel.getComponent(tileToPlayComp))).getCoords();
-        checkForSOS(((GameTile)(playAreaPanel.getComponent(tileToPlayComp))).getCoords(), boardSize);
+        this.lastTilePlayed = ((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).getCoords();
+        checkForSOS(((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).getCoords(), boardSize);
         tilesRemaining--;
     }
 
-    public void ComputerTwoMakeMove(){
+    public void ComputerTwoMakeMove() {
         tileToPlayComp = 0;
         typeToPlayComp = ' ';
-        tileToPlayComp = ((ComputerPlayer)playerTwo).FindNextTileToPlay(playAreaPanel);
-        typeToPlayComp = ((ComputerPlayer)playerTwo).DecideWhatToPlaceOnTile(playAreaPanel, tileToPlayComp);
+        tileToPlayComp = ((ComputerPlayer) playerTwo).FindNextTileToPlay(playAreaPanel);
+        typeToPlayComp = ((ComputerPlayer) playerTwo).DecideWhatToPlaceOnTile(playAreaPanel, tileToPlayComp);
 
-        ((GameTile)(playAreaPanel.getComponent(tileToPlayComp))).played();
-        ((GameTile)(playAreaPanel.getComponent(tileToPlayComp))).setState(typeToPlayComp);
+        int tileToPlayCompX = tileToPlayComp % boardSize;
+        int tileToPlayCompY = tileToPlayComp / boardSize;
 
-        if(typeToPlayComp == 'S'){
-            ((GameTile)(playAreaPanel.getComponent(tileToPlayComp))).setIcon(new TileIcon().getWhiteS());
+        gameRecord.AddLineToGameLog("Blue Computer Played a " + typeToPlayComp + " at " + Integer.toString(tileToPlayCompX) + ", " + Integer.toString(tileToPlayCompY) + "\n");
+
+        ((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).played();
+        ((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).setState(typeToPlayComp);
+
+        if (typeToPlayComp == 'S') {
+            ((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).setIcon(new TileIcon().getWhiteS());
+        } else {
+            ((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).setIcon(new TileIcon().getWhiteO());
         }
-        else{
-            ((GameTile)(playAreaPanel.getComponent(tileToPlayComp))).setIcon(new TileIcon().getWhiteO());
-        }
 
-        this.lastTilePlayed = ((GameTile)(playAreaPanel.getComponent(tileToPlayComp))).getCoords();
-        checkForSOS(((GameTile)(playAreaPanel.getComponent(tileToPlayComp))).getCoords(), boardSize);
+        this.lastTilePlayed = ((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).getCoords();
+        checkForSOS(((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).getCoords(), boardSize);
         tilesRemaining--;
     }
 
-    public void NextPlayer(){
+    public void NextPlayer() {
         isItPlayerOnesTurn = !isItPlayerOnesTurn;
-        if (isItPlayerOnesTurn){
+        if (isItPlayerOnesTurn) {
             leftPanel.setBackground(redTeamColor);
             leftRadioButtonO.setBackground(redTeamColor);
             leftRadioButtonS.setBackground(redTeamColor);
@@ -292,8 +297,7 @@ public class PlayWindow extends JFrame {
             rightPanel.setBackground(offTurnColor);
             rightRadioButtonO.setBackground(offTurnColor);
             rightRadioButtonS.setBackground(offTurnColor);
-        }
-        else{
+        } else {
             leftPanel.setBackground(offTurnColor);
             leftRadioButtonO.setBackground(offTurnColor);
             leftRadioButtonS.setBackground(offTurnColor);
@@ -304,9 +308,9 @@ public class PlayWindow extends JFrame {
         }
     }
 
-    public void populateBoard(JPanel area, int boardSize){
-        for (int i = 1; i < boardSize + 1; i++){
-            for (int j = 1; j < boardSize + 1; j++){
+    public void populateBoard(JPanel area, int boardSize) {
+        for (int i = 1; i < boardSize + 1; i++) {
+            for (int j = 1; j < boardSize + 1; j++) {
                 GameTile button = new GameTile(new TileLocation(j, i), new TileIcon().getBLANK());
                 button.addActionListener(e -> MakeMove(button));
                 area.add(button);
@@ -314,7 +318,7 @@ public class PlayWindow extends JFrame {
         }
     }
 
-    public void checkForSOS(TileLocation last, int boardSize){
+    public void checkForSOS(TileLocation last, int boardSize) {
         //converting tile coordinates to an index so that we can access it in the JPanel GridLayout.
         int playedTileIndex = (boardSize * (last.getyCoord() - 1) + (last.getxCoord() - 1)); //Index of the last tile played.
         //Grabbing a copy of the last tile played.
@@ -322,45 +326,45 @@ public class PlayWindow extends JFrame {
 
         int firstTileIndex;
         int secondTileIndex;
-        int boardMaxIndex = ((int)Math.pow(boardSize, 2) - 1);
+        int boardMaxIndex = ((int) Math.pow(boardSize, 2) - 1);
         boolean SOSAwarded = false;
 
-        if(lastTilePlayed.getState() == 'S'){
+        if (lastTilePlayed.getState() == 'S') {
             //Above
             //Checking if the two tiles above exist.
             firstTileIndex = playedTileIndex - boardSize;
             secondTileIndex = firstTileIndex - boardSize;
             //as long as there are two tiles above to be checked, we will copy those into new objects.
-            if((firstTileIndex > 0) && (secondTileIndex) > 0){
+            if ((firstTileIndex > 0) && (secondTileIndex) > 0) {
                 SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, true);
             }
 
             //topRight
             firstTileIndex = (playedTileIndex - boardSize + 1);
             secondTileIndex = (firstTileIndex - boardSize + 1);
-            if(((firstTileIndex > 0) && (secondTileIndex > 0)) && ((firstTileIndex % boardSize != 0) && (secondTileIndex % boardSize != 0))){
+            if (((firstTileIndex > 0) && (secondTileIndex > 0)) && ((firstTileIndex % boardSize != 0) && (secondTileIndex % boardSize != 0))) {
                 SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, true);
             }
 
             //Right
-            firstTileIndex  = (playedTileIndex + 1);
+            firstTileIndex = (playedTileIndex + 1);
             secondTileIndex = (playedTileIndex + 2);
             //if the next item to the left's index is evenly divisible by the board size, we know that it is the first item in the next line.
-            if(((firstTileIndex * secondTileIndex) % boardSize != 0) && (firstTileIndex <= boardMaxIndex) && (secondTileIndex <= boardMaxIndex)){
+            if (((firstTileIndex * secondTileIndex) % boardSize != 0) && (firstTileIndex <= boardMaxIndex) && (secondTileIndex <= boardMaxIndex)) {
                 SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, true);
             }
 
             //bottomRight
             firstTileIndex = (playedTileIndex + boardSize + 1);
             secondTileIndex = (firstTileIndex + boardSize + 1);
-            if((firstTileIndex * secondTileIndex) % boardSize != 0 && firstTileIndex <= boardMaxIndex && secondTileIndex <= boardMaxIndex){
+            if ((firstTileIndex * secondTileIndex) % boardSize != 0 && firstTileIndex <= boardMaxIndex && secondTileIndex <= boardMaxIndex) {
                 SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, true);
             }
 
             //Bottom
             firstTileIndex = playedTileIndex + boardSize;
             secondTileIndex = firstTileIndex + boardSize;
-            if(firstTileIndex < boardMaxIndex && secondTileIndex < boardMaxIndex){
+            if (firstTileIndex < boardMaxIndex && secondTileIndex < boardMaxIndex) {
                 //as long as there are two tiles below to be checked, we will copy those into new objects.
                 SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, true);
             }
@@ -368,62 +372,60 @@ public class PlayWindow extends JFrame {
             //bottomLeft
             firstTileIndex = (playedTileIndex + boardSize - 1);
             secondTileIndex = (firstTileIndex + boardSize - 1);
-            if(firstTileIndex <= boardMaxIndex && secondTileIndex <= boardMaxIndex && (playedTileIndex * firstTileIndex) % boardSize != 0){
+            if (firstTileIndex <= boardMaxIndex && secondTileIndex <= boardMaxIndex && (playedTileIndex * firstTileIndex) % boardSize != 0) {
                 SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, true);
             }
 
             //Left
-            firstTileIndex  = (playedTileIndex - 2);
+            firstTileIndex = (playedTileIndex - 2);
             secondTileIndex = (playedTileIndex - 1);
-            if((((secondTileIndex % boardSize) != 0  && (playedTileIndex % boardSize) != 0) && (firstTileIndex >= 0 && secondTileIndex > 0))){
+            if ((((secondTileIndex % boardSize) != 0 && (playedTileIndex % boardSize) != 0) && (firstTileIndex >= 0 && secondTileIndex > 0))) {
                 SOSAwarded = AwardSOS(playedTileIndex, secondTileIndex, firstTileIndex, true);
             }
 
             //topLeft
             firstTileIndex = (playedTileIndex - boardSize - 1);
             secondTileIndex = (firstTileIndex - boardSize - 1);
-            if((((firstTileIndex % boardSize) != 0 && (playedTileIndex % boardSize) != 0) && firstTileIndex > 0 && secondTileIndex >= 0)){
+            if ((((firstTileIndex % boardSize) != 0 && (playedTileIndex % boardSize) != 0) && firstTileIndex > 0 && secondTileIndex >= 0)) {
                 SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, true);
             }
 
-        }
-
-        else if(lastTilePlayed.getState() == 'O'){
+        } else if (lastTilePlayed.getState() == 'O') {
             //top -> bottom
             firstTileIndex = (playedTileIndex - boardSize);     //tile above
             secondTileIndex = (playedTileIndex + boardSize);    //tile below
-            if(firstTileIndex >= 0 && secondTileIndex <= boardMaxIndex){
+            if (firstTileIndex >= 0 && secondTileIndex <= boardMaxIndex) {
                 SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, false);
             }
 
             //left -> right
             firstTileIndex = (playedTileIndex - 1);     //left tile
             secondTileIndex = (playedTileIndex + 1);    //right tile
-            if((playedTileIndex * secondTileIndex) % boardSize != 0 && firstTileIndex >=0 && secondTileIndex <= boardMaxIndex){
+            if ((playedTileIndex * secondTileIndex) % boardSize != 0 && firstTileIndex >= 0 && secondTileIndex <= boardMaxIndex) {
                 SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, false);
             }
 
             //topLeft -> bottomRight
             firstTileIndex = (playedTileIndex - boardSize - 1);
             secondTileIndex = (playedTileIndex + boardSize + 1);
-            if(firstTileIndex >= 0 && ((playedTileIndex * secondTileIndex) % boardSize != 0) && secondTileIndex <= boardMaxIndex){
+            if (firstTileIndex >= 0 && ((playedTileIndex * secondTileIndex) % boardSize != 0) && secondTileIndex <= boardMaxIndex) {
                 SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, false);
             }
 
             //bottomLeft -> topRight
             firstTileIndex = (playedTileIndex + boardSize - 1);
-            secondTileIndex =  (playedTileIndex - boardSize + 1);
-            if(firstTileIndex <= boardMaxIndex && ((playedTileIndex * secondTileIndex) % boardSize != 0) && secondTileIndex >= 0){
+            secondTileIndex = (playedTileIndex - boardSize + 1);
+            if (firstTileIndex <= boardMaxIndex && ((playedTileIndex * secondTileIndex) % boardSize != 0) && secondTileIndex >= 0) {
                 SOSAwarded = AwardSOS(playedTileIndex, firstTileIndex, secondTileIndex, false);
             }
         }
 
-        if(!SOSAwarded){
+        if (!SOSAwarded) {
             NextPlayer();
         }
     }
 
-    public boolean AwardSOS(int iP, int i1, int i2, boolean isS){
+    public boolean AwardSOS(int iP, int i1, int i2, boolean isS) {
         Icon SIcon;
         Icon OIcon;
         GameTile firstTileToBeTested;
@@ -431,15 +433,14 @@ public class PlayWindow extends JFrame {
         firstTileToBeTested = (GameTile) playAreaPanel.getComponent(i1);
         secondTileToBeTested = (GameTile) playAreaPanel.getComponent(i2);
 
-        if(isItPlayerOnesTurn){
+        if (isItPlayerOnesTurn) {
             SIcon = new TileIcon().getRedS();
             OIcon = new TileIcon().getRedO();
-        }
-        else {
+        } else {
             SIcon = new TileIcon().getBlueS();
             OIcon = new TileIcon().getBlueO();
         }
-        if(isS) {
+        if (isS) {
             if (firstTileToBeTested.getState() == 'O' && secondTileToBeTested.getState() == 'S') {
                 ((GameTile) playAreaPanel.getComponent(iP)).setIcon(SIcon);
                 ((GameTile) playAreaPanel.getComponent(i1)).setIcon(OIcon);
@@ -449,8 +450,7 @@ public class PlayWindow extends JFrame {
             } else {
                 return false;
             }
-        }
-        else{
+        } else {
             if (firstTileToBeTested.getState() == 'S' && secondTileToBeTested.getState() == 'S') {
                 ((GameTile) playAreaPanel.getComponent(i1)).setIcon(SIcon);
                 ((GameTile) playAreaPanel.getComponent(iP)).setIcon(OIcon);
@@ -463,19 +463,22 @@ public class PlayWindow extends JFrame {
         }
     }
 
-    public void PointScored(){
+    public void PointScored() {
         //decide who the point goes to:
-        if (isItPlayerOnesTurn){
+        if (isItPlayerOnesTurn) {
             playerOne.score++;
             leftScoreText.setText(String.valueOf(playerOne.score));
-        }
-        else{
+            gameRecord.AddLineToGameLog("Red Team Scored a Point!\n");
+
+        } else {
             playerTwo.score++;
             rightScoreText.setText(String.valueOf(playerTwo.score));
+            gameRecord.AddLineToGameLog("Blue Team Scored a Point!\n");
+
         }
     }
 
-    private void BuildUIElementLists(){
+    private void BuildUIElementLists() {
 
         //Main list of all UI Elements
         UIElementsMain.add(titlePanel);
@@ -510,9 +513,13 @@ public class PlayWindow extends JFrame {
 
     }
 
-    protected void checkForWin(){/*Overridden in child class*/}
-    public void setP1RadioButtonS(boolean status) {leftRadioButtonS.setSelected(status);}
-    public void setP1RadioButtonO(boolean status) {leftRadioButtonO.setSelected(status);}
-    public void setP2RadioButtonS(boolean status) {rightRadioButtonS.setSelected(status);}
-    public void setP2RadioButtonO(boolean status) {rightRadioButtonO.setSelected(status);}
+    protected void checkForWin() {/*Overridden in child class*/}
+
+    public void setP1RadioButtonS(boolean status) {
+        leftRadioButtonS.setSelected(status);
+    }
+
+    public void setP2RadioButtonS(boolean status) {
+        rightRadioButtonS.setSelected(status);
+    }
 }
