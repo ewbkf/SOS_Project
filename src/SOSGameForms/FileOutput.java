@@ -1,6 +1,7 @@
 package SOSGameForms;
 
 import java.io.*;
+import java.nio.CharBuffer;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
@@ -62,6 +63,20 @@ public class FileOutput {
             System.out.println("Error reading line");
             return "Error reading line";
         }
+    }
+
+    CharBuffer extractGameLog() throws FileNotFoundException {
+        CharBuffer buf = null;
+        CharBuffer.allocate(1000);
+
+        try (FileReader reader = new FileReader(gameLog)) {
+            reader.read(buf);
+        }
+        catch (IOException e) {
+            System.out.println("Error reading line");
+            return buf;
+        }
+        return buf;
     }
 
     private String GetLocalTimeForFileName(){

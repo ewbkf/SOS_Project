@@ -5,20 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64006a94-056b-4567-b3be-938e080d0ce0" name="Changes" comment="Refactored more variables for more readable and standardized variable names.">
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-22.59.07.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-22.59.28.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-23.00.10.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-23.00.30.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-23.01.00.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-23.01.36.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-23.01.56.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-23.02.30.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-23.02.53.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-23.09.47.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-23.10.44.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_11Dec2022-23.11.56.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-13.38.14.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowGeneralReplay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowSimpleReplay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/Resources/Move.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/FileOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/FileOutput.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowGeneral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowGeneral.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowSimple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowSimple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/TileLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/TileLocation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +93,7 @@
       <recent name="SOSGameForms" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.RunGame">
+  <component name="RunManager" selected="JUnit.FileOutputTest.WritingAndReadingLineCorrectly">
     <configuration name="Unnamed" type="AntRunConfiguration" nameIsGenerated="true">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -121,6 +117,22 @@
       <option name="PACKAGE_NAME" value="SOSGameForms" />
       <option name="MAIN_CLASS_NAME" value="SOSGameForms.FileOutputTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileOutputTest.WritingAndReadingLineCorrectly" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SOS_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SOSGameForms.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="SOSGameForms" />
+      <option name="MAIN_CLASS_NAME" value="SOSGameForms.FileOutputTest" />
+      <option name="METHOD_NAME" value="WritingAndReadingLineCorrectly" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -172,38 +184,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayWindowTest.checkThatXCoordinatesAreCorrectAfterTurnP1S" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SOS_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="SOSGameForms.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="SOSGameForms" />
-      <option name="MAIN_CLASS_NAME" value="SOSGameForms.PlayWindowTest" />
-      <option name="METHOD_NAME" value="checkThatXCoordinatesAreCorrectAfterTurnP1S" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Ant Target.Unnamed" />
       <item itemvalue="Application.RunGame" />
+      <item itemvalue="JUnit.FileOutputTest.WritingAndReadingLineCorrectly" />
       <item itemvalue="JUnit.FileOutputTest" />
       <item itemvalue="JUnit.PlayWindowTest" />
       <item itemvalue="JUnit.PlayWindowTest.checkIntegrityOfGameTileAfterCastYCoord" />
       <item itemvalue="JUnit.PlayWindowTest.checkIntegrityOfGameTileAfterCast" />
-      <item itemvalue="JUnit.PlayWindowTest.checkThatXCoordinatesAreCorrectAfterTurnP1S" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FileOutputTest.WritingAndReadingLineCorrectly" />
         <item itemvalue="JUnit.FileOutputTest" />
         <item itemvalue="JUnit.PlayWindowTest" />
         <item itemvalue="JUnit.PlayWindowTest.checkIntegrityOfGameTileAfterCastYCoord" />
         <item itemvalue="JUnit.PlayWindowTest.checkIntegrityOfGameTileAfterCast" />
-        <item itemvalue="JUnit.PlayWindowTest.checkThatXCoordinatesAreCorrectAfterTurnP1S" />
       </list>
     </recent_temporary>
   </component>
@@ -286,7 +282,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670820737441</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Refactored more variables for more readable and standardized variable names.">
+      <created>1670864235559</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1670864235559</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

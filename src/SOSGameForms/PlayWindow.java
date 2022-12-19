@@ -1,10 +1,13 @@
 package SOSGameForms;
 
+import SOSGameForms.Resources.Move;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Vector;
 
 public class PlayWindow extends JFrame {
 
@@ -81,6 +84,8 @@ public class PlayWindow extends JFrame {
     protected List<JComponent> UIElementsMain = new ArrayList<>();
     protected List<JComponent> UIElementsLeft = new ArrayList<>();
     protected List<JComponent> UIElementsRight = new ArrayList<>();
+
+    protected Vector<Move> moveVector;
 
     public PlayWindow(int size, int pMode) throws HeadlessException {
         ImageIcon frameIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("Resources/SOS_windowIcon.png")));
@@ -191,10 +196,11 @@ public class PlayWindow extends JFrame {
 
         if (typeToPlayHuman == 'S') {
             button.setIcon(new TileIcon().getWhiteS());
-
+            moveVector.add(new Move(typeToPlayHuman, isItPlayerOnesTurn, button.getCoords().getIndexFromCoordinates(boardSize)));
         }
         if (typeToPlayHuman == 'O') {
             button.setIcon(new TileIcon().getWhiteO());
+            moveVector.add(new Move(typeToPlayHuman, isItPlayerOnesTurn, button.getCoords().getIndexFromCoordinates(boardSize)));
         }
 
         gameRecord.AddLineToGameLog("Red Player played a " + typeToPlayHuman + " at " + button.getCoords().getxCoord() + ", " + button.getCoords().getyCoord() + "\n");
@@ -217,10 +223,12 @@ public class PlayWindow extends JFrame {
 
         if (typeToPlayHuman == 'S') {
             button.setIcon(new TileIcon().getWhiteS());
+            moveVector.add(new Move(typeToPlayHuman, isItPlayerOnesTurn, button.getCoords().getIndexFromCoordinates(boardSize)));
 
         }
         if (typeToPlayHuman == 'O') {
             button.setIcon(new TileIcon().getWhiteO());
+            moveVector.add(new Move(typeToPlayHuman, isItPlayerOnesTurn, button.getCoords().getIndexFromCoordinates(boardSize)));
         }
 
         gameRecord.AddLineToGameLog("Blue Player played a " + typeToPlayHuman + " at " + button.getCoords().getxCoord() + ", " + button.getCoords().getyCoord() + "\n");
@@ -246,15 +254,17 @@ public class PlayWindow extends JFrame {
         int tileToPlayCompX = tileToPlayComp % boardSize;
         int tileToPlayCompY = tileToPlayComp / boardSize;
 
-        gameRecord.AddLineToGameLog("Red Computer Played a " + typeToPlayComp + " at " + Integer.toString(tileToPlayCompX) + ", " + Integer.toString(tileToPlayCompY) + "\n");
+        gameRecord.AddLineToGameLog("Red Computer Played a " + typeToPlayComp + " at " + tileToPlayCompX + ", " + tileToPlayCompY + "\n");
 
         ((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).played();
         ((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).setState(typeToPlayComp);
 
         if (typeToPlayComp == 'S') {
             ((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).setIcon(new TileIcon().getWhiteS());
+            moveVector.add(new Move(typeToPlayComp, isItPlayerOnesTurn, tileToPlayComp));
         } else {
             ((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).setIcon(new TileIcon().getWhiteO());
+            moveVector.add(new Move(typeToPlayComp, isItPlayerOnesTurn, tileToPlayComp));
         }
 
         this.lastTilePlayed = ((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).getCoords();
@@ -272,7 +282,7 @@ public class PlayWindow extends JFrame {
         int tileToPlayCompX = tileToPlayComp % boardSize;
         int tileToPlayCompY = tileToPlayComp / boardSize;
 
-        gameRecord.AddLineToGameLog("Blue Computer Played a " + typeToPlayComp + " at " + Integer.toString(tileToPlayCompX) + ", " + Integer.toString(tileToPlayCompY) + "\n");
+        gameRecord.AddLineToGameLog("Blue Computer Played a " + typeToPlayComp + " at " + tileToPlayCompX + ", " + tileToPlayCompY + "\n");
 
         ((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).played();
         ((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).setState(typeToPlayComp);
@@ -322,7 +332,7 @@ public class PlayWindow extends JFrame {
 
     public void checkForSOS(TileLocation last, int boardSize) {
         //converting tile coordinates to an index so that we can access it in the JPanel GridLayout.
-        int playedTileIndex = (boardSize * (last.getyCoord() - 1) + (last.getxCoord() - 1)); //Index of the last tile played.
+        int playedTileIndex = last.getIndexFromCoordinates(boardSize); //Index of the last tile played.
         //Grabbing a copy of the last tile played.
         GameTile lastTilePlayed = (GameTile) playAreaPanel.getComponent(playedTileIndex);
 

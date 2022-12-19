@@ -21,7 +21,7 @@ public class PlayWindowGeneral extends PlayWindow{
         replayButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new PlayWindowGeneral(boardSize, pMode);
+                new PlayWindowGeneralReplay(boardSize, pMode, moveVector);
                 PlayWindowGeneral.this.dispose();
             }
         });
@@ -72,12 +72,14 @@ public class PlayWindowGeneral extends PlayWindow{
     protected void PlayerOneWins(){
         SetColorsToWinningPlayer(redTeamColor);
         Player1WinsText.setVisible(true);
+        gameRecord.AddLineToGameLog("Red Team Wins");
         GameOver();
     }
 
     protected void PlayerTwoWins(){
         SetColorsToWinningPlayer(blueTeamColor);
         Player2WinsText.setVisible(true);
+        gameRecord.AddLineToGameLog("Blue Team Wins");
         GameOver();
     }
 

@@ -28,4 +28,8 @@ public class TileLocation {
     public void setyCoord(int yCoord) {
         this.yCoord = yCoord;
     }
+
+    public int getIndexFromCoordinates(int boardSize){
+        return ((boardSize * (yCoord - 1)) + (xCoord - 1));
+    }
 }
