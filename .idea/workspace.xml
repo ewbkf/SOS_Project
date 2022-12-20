@@ -4,17 +4,125 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64006a94-056b-4567-b3be-938e080d0ce0" name="Changes" comment="Refactored more variables for more readable and standardized variable names.">
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-13.38.14.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowGeneralReplay.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowSimpleReplay.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/Resources/Move.java" afterDir="false" />
+    <list default="true" id="64006a94-056b-4567-b3be-938e080d0ce0" name="Changes" comment="Implementing the replay functionality">
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.16.56.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.20.58.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.21.26.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.22.14.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.22.18.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.22.21.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.22.45.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.22.47.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.24.06.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.24.09.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.25.57.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.25.59.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.27.27.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.27.31.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.32.23.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.32.25.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.34.24.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.34.26.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.34.30.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.34.34.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.34.37.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.34.38.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.34.40.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.35.21.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.35.23.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.35.28.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.35.31.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.59.27.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.59.29.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.59.33.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.59.35.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.59.38.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.59.40.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.59.41.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.59.42.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.59.44.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.59.45.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-17.59.46.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.00.57.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.00.59.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.01.05.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.01.09.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.02.44.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.02.46.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.04.00.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.04.02.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.04.21.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.04.23.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.04.55.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.05.23.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.05.25.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.05.26.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.05.28.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.05.37.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.05.39.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.05.43.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.06.19.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.06.21.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.06.22.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.06.24.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.06.25.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.07.37.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.07.39.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.08.07.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.09.23.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.12.06.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.12.08.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.12.54.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.12.56.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.12.59.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.13.01.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.13.34.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.13.37.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.15.49.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.15.51.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.16.33.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-18.16.35.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.00.52.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.00.54.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.04.53.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.04.58.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.06.48.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.06.51.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.08.04.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.08.14.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.08.46.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.08.48.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.09.33.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.09.35.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.09.37.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.09.38.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.21.13.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.21.15.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.23.04.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.23.06.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.23.58.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.24.00.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.25.18.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.25.21.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.26.34.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.26.36.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.27.44.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.27.46.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.29.27.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.29.30.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.32.04.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.32.06.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.34.40.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.34.44.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.39.08.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.39.18.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.39.48.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SOSGameForms/GameLogs/SOSGame_19Dec2022-19.39.52.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/FileOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/FileOutput.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowGeneral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowGeneral.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowSimple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowSimple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/TileLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/TileLocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowGeneralReplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowGeneralReplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowSimpleReplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/PlayWindowSimpleReplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SOSGameForms/Resources/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SOSGameForms/Resources/Move.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +201,7 @@
       <recent name="SOSGameForms" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.FileOutputTest.WritingAndReadingLineCorrectly">
+  <component name="RunManager" selected="Application.RunGame">
     <configuration name="Unnamed" type="AntRunConfiguration" nameIsGenerated="true">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -289,7 +397,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670864235559</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Implementing the replay functionality">
+      <created>1671489903322</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1671489903322</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -312,6 +427,7 @@
     <MESSAGE value="Added some children. Started to get a handle on how the program would decide if an SOS was made. Added unit testing." />
     <MESSAGE value="Added some stuff, took some stuff away. Code still functions pretty much the exact same, just cleaned it up a bit." />
     <MESSAGE value="Refactored more variables for more readable and standardized variable names." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored more variables for more readable and standardized variable names." />
+    <MESSAGE value="Implementing the replay functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementing the replay functionality" />
   </component>
 </project>

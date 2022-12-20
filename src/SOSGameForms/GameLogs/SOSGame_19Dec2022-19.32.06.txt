@@ -1,0 +1,6 @@
+New game started: 
+Game Mode: Simple Game 
+Board Size: 3
+ 
+Red Team Scored a Point!
+Red Team Wins

@@ -1,0 +1,13 @@
+New game started: 
+Game Mode: General Game 
+Board Size: 3
+ 
+Red Computer Played a O at 2, 1
+Blue Computer Played a S at 1, 0
+Red Computer Played a S at 2, 2
+Blue Computer Played a S at 1, 1
+Red Computer Played a S at 1, 2
+Blue Computer Played a O at 0, 1
+Red Computer Played a O at 2, 0
+Blue Computer Played a O at 0, 0
+Red Computer Played a O at 0, 2

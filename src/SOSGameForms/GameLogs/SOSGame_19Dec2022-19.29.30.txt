@@ -1,0 +1,4 @@
+New game started: 
+Game Mode: Simple Game 
+Board Size: 3
+ 

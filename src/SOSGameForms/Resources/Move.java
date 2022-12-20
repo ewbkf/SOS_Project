@@ -1,5 +1,7 @@
 package SOSGameForms.Resources;
 
+import SOSGameForms.TileLocation;
+
 public class Move {
     char moveType = ' ';
     //' ' - n/a
@@ -10,10 +12,10 @@ public class Move {
     //true - Red Team;
     //false - Blue Team;
 
-
-
     int moveIndex;
     //Where the move happened. If not applicable this will not be used. Stored as an index in the Grid array.
+
+    TileLocation coordinates;
 
     public Move(char t, boolean p, int l){
         moveType = t;
@@ -21,10 +23,6 @@ public class Move {
         moveIndex = l;
     }
 
-    public Move(char t, boolean p){
-        moveType = t;
-        playerOneTurn = p;
-    }
 
     public char getMoveType() {
         return moveType;

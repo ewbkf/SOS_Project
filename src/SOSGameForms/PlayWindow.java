@@ -4,6 +4,8 @@ import SOSGameForms.Resources.Move;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -85,7 +87,7 @@ public class PlayWindow extends JFrame {
     protected List<JComponent> UIElementsLeft = new ArrayList<>();
     protected List<JComponent> UIElementsRight = new ArrayList<>();
 
-    protected Vector<Move> moveVector;
+    protected Vector<Move> moveVector = new Vector<>();
 
     public PlayWindow(int size, int pMode) throws HeadlessException {
         ImageIcon frameIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("Resources/SOS_windowIcon.png")));
@@ -145,7 +147,12 @@ public class PlayWindow extends JFrame {
             }
         }
 
-        startGameButton.addActionListener(e -> MakeMove(new GameTile(new TileLocation(), new ImageIcon())));
+        startGameButton.addActionListener(new ActionListener()  {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MakeMove(new GameTile(new TileLocation(), new ImageIcon()));
+            }
+        });
     }
 
     public void MakeMove(GameTile button) {
@@ -243,6 +250,15 @@ public class PlayWindow extends JFrame {
         } else {
             ComputerTwoMakeMove();
         }
+        SwingWorker<Void, String> worker = new SwingWorker<Void, String>(){
+            @Override
+            protected Void doInBackground() throws Exception {
+                Thread.sleep(10000);
+                return null;
+            }
+
+        };
+        worker.execute();
     }
 
     public void ComputerOneMakeMove() {
@@ -289,8 +305,10 @@ public class PlayWindow extends JFrame {
 
         if (typeToPlayComp == 'S') {
             ((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).setIcon(new TileIcon().getWhiteS());
+            moveVector.add(new Move(typeToPlayComp, isItPlayerOnesTurn, tileToPlayComp));
         } else {
             ((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).setIcon(new TileIcon().getWhiteO());
+            moveVector.add(new Move(typeToPlayComp, isItPlayerOnesTurn, tileToPlayComp));
         }
 
         this.lastTilePlayed = ((GameTile) (playAreaPanel.getComponent(tileToPlayComp))).getCoords();

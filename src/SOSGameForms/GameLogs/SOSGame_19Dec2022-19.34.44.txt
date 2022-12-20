@@ -1,0 +1,15 @@
+New game started: 
+Game Mode: General Game 
+Board Size: 5
+ 
+Red Team Scored a Point!
+Blue Team Scored a Point!
+Red Team Scored a Point!
+Red Team Scored a Point!
+Red Team Scored a Point!
+Blue Team Scored a Point!
+Red Team Scored a Point!
+Red Team Scored a Point!
+Blue Team Scored a Point!
+Red Team Scored a Point!
+Red Team Wins

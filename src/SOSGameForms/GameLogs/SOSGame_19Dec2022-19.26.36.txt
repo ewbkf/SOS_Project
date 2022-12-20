@@ -1,0 +1,5 @@
+New game started: 
+Game Mode: Simple Game 
+Board Size: 3
+ 
+Red Player played a   at -1, -1

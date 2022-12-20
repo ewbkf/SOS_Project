@@ -1,0 +1,5 @@
+New game started: 
+Game Mode: General Game 
+Board Size: 6
+ 
+Red Team Scored a Point!

@@ -1,0 +1,6 @@
+New game started: 
+Game Mode: General Game 
+Board Size: 3
+ 
+Blue Team Scored a Point!
+Blue Team WinsBlue Team Wins
